@@ -34,13 +34,14 @@ cd BaiTapNhom
 ### ✅ Cách 2: Tải file ZIP
 
 1. Truy cập GitHub → bấm nút **Code** → chọn **Download ZIP**
-2. Giải nén ra thư mục, ví dụ: `BaiTapNhom`
-3. Mở Terminal và di chuyển vào thư mục đó:
+2. Giải nén ra thư mục ra `BaiTapNhom`
+3. Và di chuyển vào thư mục đó:
 
+Nếu dùng linux thì
 ```bash
 cd BaiTapNhom
 ```
-
+ 
 ---
 
 ## Bước 3: Cài đặt thư viện với npm
@@ -50,6 +51,8 @@ Trong thư mục dự án, chạy lệnh:
 ```bash
 npm install
 ```
+Trong terminal(`linux`) hoặc command prompt (`Windows`)
+
 
 Lệnh này sẽ tự động tải tất cả các thư viện phụ thuộc từ file `package.json`.
 

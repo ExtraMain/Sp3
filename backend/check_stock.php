@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode(['status' => 'error', 'message' => 'Dữ liệu không hợp lệ']);
         exit();
     }
-
+ 
     try {
         $conn = new PDO("mysql:host=$host;dbname=$db_name;charset=utf8", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

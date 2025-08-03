@@ -1,0 +1,446 @@
+/* RevenueReport.css */
+
+/* Container chính */
+.revenue-report {
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f5f0e8 0%, #ede0d4 50%, #e8dbc8 100%);
+  min-height: 100vh;
+}
+
+/* Tiêu đề chính */
+.revenue-report h2 {
+  color: #7f5539;
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 3px solid #a68a64;
+  padding-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(127, 85, 57, 0.1);
+  position: relative;
+}
+
+.revenue-report h2::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #a68a64, #7f5539);
+  border-radius: 2px;
+}
+
+/* Section bộ lọc */
+.filter-section {
+  background: linear-gradient(135deg, #ede0d4, #f5f0e8);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(127, 85, 57, 0.1);
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  border: 1px solid #d4c4b0;
+}
+
+.filter-section label {
+  font-weight: 600;
+  color: #7f5539;
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.filter-section select {
+  padding: 10px 14px;
+  border: 2px solid #c4b296;
+  border-radius: 8px;
+  font-size: 14px;
+  background: linear-gradient(135deg, #ede0d4, #f5f0e8);
+  color: #7f5539;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  outline: none;
+}
+
+.filter-section select:hover {
+  border-color: #a68a64;
+  box-shadow: 0 0 0 3px rgba(166, 138, 100, 0.1);
+}
+
+.filter-section select:focus {
+  border-color: #7f5539;
+  box-shadow: 0 0 0 3px rgba(127, 85, 57, 0.15);
+}
+
+.filter-section button {
+  background: linear-gradient(135deg, #7f5539, #414833);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(127, 85, 57, 0.2);
+}
+
+.filter-section button:hover {
+  background: linear-gradient(135deg, #414833, #2d3025);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(127, 85, 57, 0.3);
+}
+
+/* Containers cho biểu đồ */
+.chart-container {
+  background: linear-gradient(135deg, #ede0d4, #f5f0e8);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(127, 85, 57, 0.1);
+  margin-bottom: 30px;
+  border: 1px solid #d4c4b0;
+  position: relative;
+  overflow: hidden;
+}
+
+.chart-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #a68a64, #7f5539, #656d4a);
+}
+
+.chart-container h3 {
+  color: #7f5539;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chart-container h3::before {
+  content: '📊';
+  font-size: 24px;
+}
+
+.chart-container p {
+  color: #656d4a;
+  font-style: italic;
+  text-align: center;
+  padding: 40px 0;
+  font-size: 16px;
+  background: linear-gradient(135deg, #f5f0e8, #e8dbc8);
+  border-radius: 8px;
+  border: 1px solid #d4c4b0;
+}
+
+/* Tổng doanh thu */
+.total-revenue {
+  background: linear-gradient(135deg, #656d4a, #414833);
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  margin: 20px 0;
+  box-shadow: 0 6px 25px rgba(101, 109, 74, 0.3);
+  border: 1px solid #5a6442;
+  position: relative;
+  overflow: hidden;
+}
+
+.total-revenue::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #656d4a, #414833, #7f5539, #a68a64);
+  border-radius: 12px;
+  z-index: -1;
+}
+
+.total-revenue h3 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.total-revenue h3::before {
+  content: '🌾';
+  font-size: 28px;
+}
+
+/* Bảng chi tiết */
+.payment-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: linear-gradient(135deg, #ede0d4, #f5f0e8);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 25px rgba(127, 85, 57, 0.15);
+  margin: 20px 0;
+  border: 1px solid #d4c4b0;
+}
+
+.payment-table thead {
+  background: linear-gradient(135deg, #7f5539, #656d4a);
+  color: white;
+  position: relative;
+}
+
+.payment-table thead::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #a68a64, #7f5539, #414833);
+}
+
+.payment-table th,
+.payment-table td {
+  padding: 15px 18px;
+  text-align: left;
+  border-bottom: 1px solid #e0d2c4;
+}
+
+.payment-table th {
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.payment-table td {
+  font-size: 14px;
+  color: #656d4a;
+  font-weight: 500;
+}
+
+.payment-table tbody tr:nth-child(even) {
+  background: linear-gradient(135deg, #f5f0e8, #ede0d4);
+}
+
+.payment-table tbody tr:hover {
+  background: linear-gradient(135deg, #e8dbc8, #d4c4b0);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(127, 85, 57, 0.1);
+  transition: all 0.3s ease;
+}
+
+.payment-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Styling đặc biệt cho các cột quan trọng */
+.payment-table td:first-child {
+  font-weight: 700;
+  color: #7f5539;
+}
+
+.payment-table td:last-child {
+  font-weight: 700;
+  color: #656d4a;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .revenue-report {
+    padding: 15px;
+  }
+  
+  .filter-section {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px;
+  }
+  
+  .filter-section > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .filter-section label {
+    margin-bottom: 5px;
+  }
+  
+  .revenue-report h2 {
+    font-size: 24px;
+  }
+  
+  .chart-container {
+    padding: 20px;
+  }
+  
+  .chart-container h3 {
+    font-size: 18px;
+  }
+  
+  .total-revenue h3 {
+    font-size: 22px;
+  }
+  
+  .payment-table {
+    font-size: 12px;
+  }
+  
+  .payment-table th,
+  .payment-table td {
+    padding: 12px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .revenue-report {
+    padding: 10px;
+  }
+  
+  .payment-table th,
+  .payment-table td {
+    padding: 10px 8px;
+  }
+  
+  .filter-section {
+    gap: 10px;
+    padding: 15px;
+  }
+  
+  .filter-section select,
+  .filter-section button {
+    width: 100%;
+  }
+  
+  .chart-container {
+    padding: 15px;
+  }
+  
+  .total-revenue {
+    padding: 20px;
+  }
+}
+
+/* Animation cho loading */
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.loading {
+  animation: pulse 2s infinite;
+  background: linear-gradient(90deg, #e8dbc8 25%, #d4c4b0 50%, #e8dbc8 75%);
+  background-size: 200px 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.loading {
+  background: linear-gradient(90deg, #e8dbc8 25%, #d4c4b0 50%, #e8dbc8 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Tooltip tùy chỉnh cho biểu đồ */
+.recharts-tooltip-wrapper {
+  background: linear-gradient(135deg, #ede0d4, #f5f0e8) !important;
+  border: 2px solid #a68a64 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px rgba(127, 85, 57, 0.2) !important;
+}
+
+.recharts-tooltip-label {
+  color: #7f5539 !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+}
+
+.recharts-tooltip-item {
+  color: #656d4a !important;
+  font-weight: 500 !important;
+}
+
+/* Styles cho responsive chart */
+.recharts-responsive-container {
+  background: linear-gradient(135deg, #ede0d4, #f5f0e8);
+  border-radius: 8px;
+  border: 1px solid #d4c4b0;
+}
+
+/* Animation cho fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chart-container,
+.payment-table,
+.total-revenue {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Hiệu ứng hover cho các card */
+.chart-container:hover,
+.total-revenue:hover {
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+.chart-container:hover {
+  box-shadow: 0 8px 30px rgba(127, 85, 57, 0.2);
+}
+
+.total-revenue:hover {
+  box-shadow: 0 8px 35px rgba(101, 109, 74, 0.4);
+}
+
+/* Custom scrollbar */
+.revenue-report::-webkit-scrollbar {
+  width: 8px;
+}
+
+.revenue-report::-webkit-scrollbar-track {
+  background: #f5f0e8;
+  border-radius: 4px;
+}
+
+.revenue-report::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #a68a64, #7f5539);
+  border-radius: 4px;
+}
+
+.revenue-report::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #7f5539, #414833);
+}

@@ -4,6 +4,14 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require __DIR__ . '/PHPMailer/src/Exception.php';
+require __DIR__ . '/PHPMailer/src/PHPMailer.php';
+require __DIR__ . '/PHPMailer/src/SMTP.php';
+
+
 // Log errors to a file
 $logFile = __DIR__ . '/payment_debug.log';
 function logMessage($message) {
@@ -25,6 +33,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     logMessage("Yêu cầu OPTIONS được nhận");
     exit();
 }
+
+// Kiểm tra trùng lịch trong khoảng 2 tiếng
+function isTimeSlotAvailable($conn, $userId, $date, $time) {
+    $startTime = new DateTime("$date $time");
+    $endTime = clone $startTime;
+    $endTime->modify('+2 hours');
+
+    $startStr = $startTime->format('Y-m-d H:i:s');
+    $endStr = $endTime->format('Y-m-d H:i:s');
+
+    $query = "
+        SELECT * FROM don_dat_lich
+        WHERE ma_nguoi_dung = '$userId'
+        AND CONCAT(DATE(ngay_dat), ' ', gio_dat) BETWEEN '$startStr' AND '$endStr'
+           OR CONCAT(DATE(ngay_dat), ' ', gio_dat) + INTERVAL 2 HOUR BETWEEN '$startStr' AND '$endStr'
+    ";
+
+    $result = $conn->query($query);
+    return ($result && $result->num_rows === 0);
+}
+
 
 // Handle VNPay callback (return URL)
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['vnp_TxnRef'])) {
@@ -95,11 +124,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['vnp_TxnRef'])) {
     
     if ($_GET['vnp_ResponseCode'] == '00') {
         // Update order status to indicate payment completed
-        $sqlUpdateOrder = "UPDATE don_hang SET trang_thai = 'Đã thanh toán' WHERE id = '$orderId'";
+        $sqlUpdateOrder = "UPDATE don_dat_lich SET trang_thai = 'Đã thanh toán' WHERE id = '$orderId'";
         $conn->query($sqlUpdateOrder);
         logMessage("Cập nhật trạng thái đơn hàng $orderId thành 'Đã thanh toán'");
         
-        // Change from localhost:5173 to localhost:3000 to match your application
         header("Location: http://localhost:5173/thankyou");
         logMessage("Chuyển hướng người dùng đến trang thankyou");
         exit;
@@ -139,18 +167,23 @@ if (json_last_error() !== JSON_ERROR_NONE) {
 }
 
 // Handle order logic
-if (!$data || !isset($data['customerInfo']) || !isset($data['cartItems']) || !isset($data['paymentMethod']) || !isset($data['shippingMethod'])) {
+if (!$data || !isset($data['customerInfo']) || !isset($data['cartItems']) || !isset($data['paymentMethod'])) {
     http_response_code(400);
-    $errorMsg = "Thiếu các trường bắt buộc: customerInfo, cartItems, paymentMethod, hoặc shippingMethod";
+    $errorMsg = "Thiếu các trường bắt buộc: customerInfo, cartItems, hoặc paymentMethod";
     logMessage($errorMsg);
     echo json_encode(["status" => "error", "message" => $errorMsg]);
     exit;
 }
 
+$ten_khach_hang = $conn->real_escape_string($data['customerInfo']['fullName']);
+$email = $conn->real_escape_string($data['customerInfo']['email']);
+$so_dien_thoai = $conn->real_escape_string($data['customerInfo']['phone']);
+$gio_dat = isset($data['customerInfo']['orderTime']) ? $conn->real_escape_string($data['customerInfo']['orderTime']) : null;
+$ghi_chu = isset($data['customerInfo']['note']) ? $conn->real_escape_string($data['customerInfo']['note']) : ''; // ✅ thêm dòng này
+
 $thong_tin_khach_hang = $data['customerInfo'];
 $muc_gio_hang = $data['cartItems'];
 $phuong_thuc_thanh_toan = $data['paymentMethod'];
-$phuong_thuc_van_chuyen = $data['shippingMethod'];
 $tong_so_tien = $data['totalAmount'] ?? 0;
 $ngay_dat_hang = $data['orderDate'] ?? date('Y-m-d H:i:s');
 $userId = isset($data['userId']) && is_numeric($data['userId']) ? $conn->real_escape_string($data['userId']) : null;
@@ -170,11 +203,8 @@ try {
 
 // Input validation
 $requiredCustomerFields = ['fullName', 'email', 'phone'];
-if ($phuong_thuc_van_chuyen === 'ship') {
-    $requiredCustomerFields = array_merge($requiredCustomerFields, ['address', 'city', 'district']);
-}
 foreach ($requiredCustomerFields as $field) {
-    if (!isset($thong_tin_khach_hang[$field]) || ($phuong_thuc_van_chuyen === 'ship' && empty(trim($thong_tin_khach_hang[$field])))) {
+    if (!isset($thong_tin_khach_hang[$field]) || empty(trim($thong_tin_khach_hang[$field]))) {
         http_response_code(400);
         $errorMsg = "Thiếu hoặc trường khách hàng rỗng: $field";
         logMessage($errorMsg);
@@ -220,15 +250,6 @@ foreach ($muc_gio_hang as $index => $item) {
     }
 }
 
-// Validate shipping method
-if (!in_array($phuong_thuc_van_chuyen, ['ship', 'pickup'])) {
-    http_response_code(400);
-    $errorMsg = "Phương thức vận chuyển không hợp lệ: $phuong_thuc_van_chuyen";
-    logMessage($errorMsg);
-    echo json_encode(["status" => "error", "message" => $errorMsg]);
-    exit;
-}
-
 // Validate total amount
 if (!is_numeric($tong_so_tien) || $tong_so_tien <= 0) {
     http_response_code(400);
@@ -263,63 +284,49 @@ logMessage("Xác thực đầu vào thành công");
 // Start transaction
 $conn->begin_transaction();
 try {
-    // Check if we need to add shipping address (only for 'ship' method)
-    $addressId = null;
-    $dia_chi = null;
-    if ($phuong_thuc_van_chuyen === 'ship') {
-        $fullName = $conn->real_escape_string($thong_tin_khach_hang['fullName']);
-        $address = $conn->real_escape_string($thong_tin_khach_hang['address']);
-        $city = $conn->real_escape_string($thong_tin_khach_hang['city']);
-        $district = $conn->real_escape_string($thong_tin_khach_hang['district']);
-        $ward = $conn->real_escape_string($thong_tin_khach_hang['ward'] ?? '');
-        $phone = $conn->real_escape_string($thong_tin_khach_hang['phone']);
-        
-        $dia_chi = "$address, $ward, $district, $city";
-        $addressQuery = "INSERT INTO dia_chi_giao_hang (ma_tk, nguoi_nhan, sdt_nhan, dia_chi, tinh_thanh, quan_huyen, phuong_xa) 
-                         VALUES ('$userId', '$fullName', '$phone', '$address', '$city', '$district', '$ward')";
-        
-        if ($conn->query($addressQuery)) {
-            $addressId = $conn->insert_id;
-            logMessage("Tạo địa chỉ giao hàng mới với ID: $addressId");
-        } else {
-            throw new Exception("Lỗi khi chèn vào dia_chi_giao_hang: " . $conn->error);
-        }
+    if (!isTimeSlotAvailable($conn, $userId, $date->format('Y-m-d'), $gio_dat)) {
+        http_response_code(409);
+        $msg = "Bạn đã đặt lịch trong khoảng thời gian này rồi. Vui lòng chọn khung giờ khác.";
+        logMessage($msg);
+        echo json_encode(["status" => "error", "message" => $msg]);
+        exit;
     }
-    if ($phuong_thuc_van_chuyen === 'pickup') {
-        $fullName = $conn->real_escape_string($thong_tin_khach_hang['fullName']);
-        $phone = $conn->real_escape_string($thong_tin_khach_hang['phone']);
-        $defaultAddress = $conn->real_escape_string('Lấy tại cửa hàng');
-        $defaultCity = $conn->real_escape_string('');
-        $defaultDistrict = $conn->real_escape_string('');
-        $defaultWard = $conn->real_escape_string('');
-        $dia_chi = $defaultAddress;
-        
-        $addressQuery = "INSERT INTO dia_chi_giao_hang (ma_tk, nguoi_nhan, sdt_nhan, dia_chi, tinh_thanh, quan_huyen, phuong_xa)
-                         VALUES ('$userId', '$fullName', '$phone', '$defaultAddress', '$defaultCity', '$defaultDistrict', '$defaultWard')";
-        
-        if ($conn->query($addressQuery)) {
-            $addressId = $conn->insert_id;
-            logMessage("Tạo địa chỉ giao hàng mới với ID: $addressId cho pickup");
-        } else {
-            throw new Exception("Lỗi khi chèn vào dia_chi_giao_hang cho pickup: " . $conn->error);
-        }
-    }
-    
-    // Calculate order total
+
+    // Calculate order total (no shipping cost)
     $note = $conn->real_escape_string($thong_tin_khach_hang['note'] ?? '');
     $phuong_thuc_thanh_toan = $conn->real_escape_string($phuong_thuc_thanh_toan);
     $status = 'Chờ xử lý';
     $tong_so_tien = floatval($tong_so_tien);
-    $shippingCost = ($tong_so_tien > 1000000 && $phuong_thuc_van_chuyen === 'ship') ? 0 : 30000;
-    $orderTotal = $tong_so_tien + $shippingCost;
+    $orderTotal = $tong_so_tien;
 
-    // Insert order into don_hang table
-    $orderSql = "INSERT INTO don_hang (ma_nguoi_dung, ma_dia_chi, tong_tien, trang_thai, ngay_dat, ghi_chu)
-                 VALUES ('$userId', " . ($addressId ? "'$addressId'" : "NULL") . ", '$orderTotal', '$status', '$ngay_dat_hang_dinh_dang', '$note')";
+    // Insert order into don_dat_lich table (no ma_dia_chi)
+    $sql = "INSERT INTO don_dat_lich (
+    ma_nguoi_dung,
+    ten_khach_hang,
+    so_dien_thoai,
+    email,
+    tong_tien,
+    trang_thai,
+    ngay_dat,
+    gio_dat,
+    ghi_chu
+) VALUES (
+    '$userId',
+    '$ten_khach_hang',
+    '$so_dien_thoai',
+    '$email',
+    '$tong_so_tien',
+    'Chờ xử lý',
+    '$ngay_dat_hang_dinh_dang',
+    '$gio_dat',
+    '$ghi_chu'
+)";
+$conn->query($sql);
     
-    logMessage("Thực thi truy vấn chèn đơn hàng: $orderSql");
-    if (!$conn->query($orderSql)) {
-        throw new Exception("Lỗi khi chèn vào don_hang: " . $conn->error);
+    logMessage("Thực thi truy vấn chèn đơn hàng: $sql");
+    if (!$conn->query($sql)) {
+    echo json_encode(["success" => false, "message" => "Lỗi chèn đơn hàng: " . $conn->error]);
+    exit;
     }
     
     $orderId = $conn->insert_id;
@@ -329,12 +336,12 @@ try {
     $productNames = array_map(function($item) {
         return $item['ten'] . ' (x' . $item['so_luong'] . ')';
     }, $muc_gio_hang);
-    $ten_san_pham = $conn->real_escape_string(implode(', ', $productNames));
+    $ten_dich_vu = $conn->real_escape_string(implode(', ', $productNames));
     $ten_nguoi = $conn->real_escape_string($thong_tin_khach_hang['fullName']);
     
-    // Insert into hoa_don table
-    $invoiceSql = "INSERT INTO hoa_don (ma_don_hang, ten_nguoi, ten_san_pham, tong_tien, dia_chi, phuong_thuc_thanh_toan)
-                   VALUES ('$orderId', '$ten_nguoi', '$ten_san_pham', '$orderTotal', " . ($dia_chi ? "'$dia_chi'" : "NULL") . ", '$phuong_thuc_thanh_toan')";
+    // Insert into hoa_don table (no dia_chi)
+    $invoiceSql = "INSERT INTO hoa_don (ma_don_hang, ten_nguoi, ten_dich_vu, tong_tien, phuong_thuc_thanh_toan)
+                   VALUES ('$orderId', '$ten_nguoi', '$ten_dich_vu', '$orderTotal', '$phuong_thuc_thanh_toan')";
     
     logMessage("Thực thi truy vấn chèn hóa đơn: $invoiceSql");
     if (!$conn->query($invoiceSql)) {
@@ -364,7 +371,7 @@ try {
         $vnp_Amount = $orderTotal * 100;
         $vnp_Locale = "vn";
         $vnp_BankCode = "";
-        $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
+        $vnp_IpAddr = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'];
         $vnp_ExpireDate = date('YmdHis', strtotime('+30 minutes'));
 
         $inputData = array(
@@ -421,6 +428,18 @@ try {
     // For COD, commit transaction and return success
     $conn->commit();
     logMessage("Giao dịch COD được xác nhận thành công");
+
+    sendConfirmationEmail(
+        $email,
+        $ten_khach_hang,
+        $orderId,
+        $orderTotal,
+        implode(', ', array_map(function($i) {
+            return $i['ten'] . ' (x' . $i['so_luong'] . ')';
+        }, $muc_gio_hang)),
+        $phuong_thuc_thanh_toan
+    );
+
     http_response_code(200);
     echo json_encode([
         "status" => "success",
@@ -442,4 +461,50 @@ try {
 function generateTransactionId() {
     return 'TXN' . time() . rand(1000, 9999);
 }
+
+function sendConfirmationEmail($toEmail, $toName, $orderId, $orderTotal, $productList, $paymentMethod) {
+    $mail = new PHPMailer(true);
+
+    try {
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+
+        $mail->Username = 'kobikok123@gmail.com';      
+        $mail->Password = 'ngcnrigxaaqolqtv';           
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
+
+        $mail->setFrom('kobikok123@gmail.com', 'Spa Booking');
+        $mail->addAddress($toEmail, $toName);
+
+        $mail->isHTML(true);
+        $mail->CharSet = 'UTF-8';   
+
+        $mail->Subject = "Xác nhận đơn đặt lịch #$orderId";
+        $mail->Body = "
+            <html>
+            <head><meta charset='UTF-8'></head>
+            <body>
+                <h3>Xin chào $toName,</h3>
+                <p>Bạn đã đặt lịch thành công với các thông tin sau:</p>
+                <ul>
+                    <li><strong>Mã đơn hàng:</strong> $orderId</li>
+                    <li><strong>Sản phẩm:</strong> $productList</li>
+                    <li><strong>Phương thức thanh toán:</strong> $paymentMethod</li>
+                    <li><strong>Tổng tiền:</strong> " . number_format($orderTotal, 0, ',', '.') . " VND</li>
+                </ul>
+                <p>Chúng tôi sẽ liên hệ để xác nhận sớm nhất.</p>
+                <p>Trân trọng,<br/>Spa Store</p>
+            </body>
+            </html>
+        ";
+
+        $mail->send();
+        logMessage("📧 Đã gửi email xác nhận tới $toEmail");
+    } catch (Exception $e) {
+        logMessage("❌ Lỗi gửi email: {$mail->ErrorInfo}");
+    }
+}
+
 ?>

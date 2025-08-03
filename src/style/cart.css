@@ -1,3 +1,5 @@
+/* cart.css - Themed with #7f5539, #a68a64, #ede0d4, #656d4a, #414833 */
+
 .cart-page {
   display: flex;
   flex-direction: row;
@@ -5,15 +7,15 @@
   gap: 20px;
   padding: 40px;
   font-family: "Segoe UI", sans-serif;
-  background: #FFFFFF; /* Nền trắng */
+  background: #ede0d4;
 }
 
-/* cart */
+/* Cart container */
 .cart-items-container {
   padding: 20px;
-  background-color: #FFFFFF; /* Nền trắng */
+  background-color: #fff;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 10px rgba(127, 85, 57, 0.1);
   max-width: 100%;
   overflow-x: auto;
   margin: 20px 0 0 40px;
@@ -25,11 +27,7 @@
   margin-bottom: 20px;
   font-size: 1.1rem;
   font-weight: 500;
-  color: #000000; /* Đen */
-}
-
-.cart-table-responsive {
-  overflow-x: auto;
+  color: #414833;
 }
 
 .cart-table {
@@ -42,17 +40,17 @@
 .cart-table td {
   padding: 12px 16px;
   text-align: left;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Đen nhạt */
+  border-bottom: 1px solid #d7ccc0;
+  color: #414833;
 }
 
 .cart-table th {
-  background-color: #FFFFFF; /* Nền trắng */
+  background-color: #f5efe6;
   font-weight: 600;
-  color: #000000; /* Đen */
 }
 
 .cart-item:hover {
-  background-color: #FFFFFF; /* Nền trắng */
+  background-color: #f9f5f0;
 }
 
 .item-info {
@@ -66,63 +64,36 @@
   height: 60px;
   object-fit: cover;
   border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.1); /* Đen nhạt */
+  border: 1px solid #a68a64;
 }
 
 .item-name {
   font-weight: 500;
-  color: #000000; /* Đen */
+  color: #414833;
 }
 
 .remove-button {
-  background: transparent; /* Trong suốt */
+  background: transparent;
   border: none;
-  color: #FF0000; /* Đỏ */
+  color: #7f5539;
   cursor: pointer;
   font-weight: bold;
-  transition: color 0.2s ease;
 }
 
 .remove-button:hover {
-  color: #8000FF; /* Tím neon khi hover */
+  color: #a68a64;
 }
 
 input[type="number"] {
   padding: 6px;
   font-size: 1rem;
   border-radius: 6px;
-  border: 1px solid rgba(0, 0, 0, 0.1); /* Đen nhạt */
+  border: 1px solid #a68a64;
   text-align: center;
+  color: #414833;
 }
 
-/*  */
-.item-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.item-image {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 5px;
-}
-
-.item-name {
-  font-weight: 500;
-  color: #333;
-}
-
-.remove-button {
-  background: transparent;
-  border: none;
-  color: #e74c3c;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-/* cart actions */
+/* Cart actions */
 .cart-actions {
   display: flex;
   flex-direction: row;
@@ -140,9 +111,9 @@ input[type="number"] {
 .continue-shopping-btn,
 .clear-cart-btn {
   padding: 10px 15px;
-  border: 1px solid #FFFFFF; /* Trắng */
-  background: #FFFFFF; /* Nền trắng */
-  color: #FF0000; /* Đỏ */
+  border: 1px solid #7f5539;
+  background: transparent;
+  color: #7f5539;
   cursor: pointer;
   font-weight: 500;
   border-radius: 5px;
@@ -151,22 +122,21 @@ input[type="number"] {
 
 .continue-shopping-btn:hover,
 .clear-cart-btn:hover {
-  background: #8000FF; /* Tím neon khi hover */
-  color: #FFFFFF; /* Trắng */
-  border-color: #8000FF; /* Tím neon */
+  background: #7f5539;
+  color: #fff;
 }
 
 .cart-checkout {
   flex: 1;
-  background: #FFFFFF; /* Nền trắng */
+  background: #fff;
   padding: 25px;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 10px rgba(127, 85, 57, 0.1);
 }
 
 .cart-total h4 {
   margin-bottom: 15px;
-  color: #000000; /* Đen */
+  color: #414833;
 }
 
 .total-row {
@@ -174,14 +144,14 @@ input[type="number"] {
   justify-content: space-between;
   font-size: 16px;
   font-weight: 500;
-  color: #000000; /* Đen */
+  color: #414833;
   margin-bottom: 20px;
 }
 
 .checkout-button {
   width: 100%;
-  background: #FF0000; /* Đỏ */
-  color: #FFFFFF; /* Trắng */
+  background: #7f5539;
+  color: #fff;
   padding: 12px;
   font-weight: bold;
   border: none;
@@ -191,9 +161,10 @@ input[type="number"] {
 }
 
 .checkout-button:hover {
-  background: #8000FF; /* Tím neon khi hover */
+  background: #656d4a;
 }
 
+/* Responsive */
 @media (max-width: 375px) {
   .cart-page {
     flex-direction: column;
@@ -203,7 +174,6 @@ input[type="number"] {
   .cart-items-container {
     margin-left: 0;
     padding: 15px 10px;
-    overflow-x: auto;
   }
 
   .cart-table {
@@ -228,14 +198,12 @@ input[type="number"] {
   .cart-buttons {
     width: 100%;
     flex-direction: column;
-    align-items: stretch;
   }
 
   .continue-shopping-btn,
   .clear-cart-btn {
     width: 100%;
     font-size: 14px;
-    padding: 10px;
   }
 
   .cart-checkout {
@@ -245,17 +213,5 @@ input[type="number"] {
 
   .checkout-button {
     font-size: 15px;
-    padding: 10px;
-  }
-
-  input[type="number"] {
-    width: 50px;
-    font-size: 14px;
-  }
-
-  .cart-summary-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
   }
 }

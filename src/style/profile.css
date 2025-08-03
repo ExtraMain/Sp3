@@ -1,18 +1,16 @@
-/* profile.css */
-
 .profile-container {
   max-width: 800px;
   margin: 2rem auto;
   margin-top: 100px;
   padding: 2rem;
-  background-color: #fff;
+  background-color: #ede0d4; /* Light beige for background */
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .profile-container h1 {
   text-align: center;
-  color: #2c3e50;
+  color: #7f5539; /* Rich brown for heading */
   margin-bottom: 2rem;
   font-size: 2rem;
 }
@@ -36,7 +34,7 @@
   height: 150px;
   border-radius: 50%;
   overflow: hidden;
-  border: 4px solid #3498db;
+  border: 4px solid #a68a64; /* Muted tan for avatar border */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -54,8 +52,8 @@
 }
 
 .avatar-upload label {
-  background-color: #3498db;
-  color: white;
+  background-color: #7f5539; /* Rich brown for upload button */
+  color: #ede0d4; /* Light beige for text */
   padding: 0.5rem 1rem;
   border-radius: 6px;
   cursor: pointer;
@@ -64,7 +62,7 @@
 }
 
 .avatar-upload label:hover {
-  background-color: #2980b9;
+  background-color: #656d4a; /* Olive green for hover effect */
 }
 
 .avatar-upload input[type="file"] {
@@ -72,7 +70,7 @@
 }
 
 .profile-details {
-  background-color: #f8f9fa;
+  background-color: #f1e9e0; /* Slightly darker beige for contrast */
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -81,11 +79,11 @@
 .profile-details p {
   margin-bottom: 1rem;
   font-size: 1.1rem;
-  color: #34495e;
+  color: #414833; /* Dark green-gray for text */
 }
 
 .profile-details strong {
-  color: #2c3e50;
+  color: #7f5539; /* Rich brown for emphasized text */
   font-weight: 600;
 }
 
@@ -93,7 +91,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  background-color: #f8f9fa;
+  background-color: #f1e9e0; /* Slightly darker beige for form background */
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -107,12 +105,12 @@
 
 .form-group label {
   font-weight: 500;
-  color: #2c3e50;
+  color: #7f5539; /* Rich brown for labels */
 }
 
 .form-group input {
   padding: 0.75rem;
-  border: 1px solid #ddd;
+  border: 1px solid #a68a64; /* Muted tan for input border */
   border-radius: 6px;
   font-size: 1rem;
   transition: border-color 0.3s;
@@ -120,8 +118,8 @@
 
 .form-group input:focus {
   outline: none;
-  border-color: #3498db;
-  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  border-color: #656d4a; /* Olive green for focus border */
+  box-shadow: 0 0 0 2px rgba(101, 109, 74, 0.2); /* Tinted olive green for focus shadow */
 }
 
 button {
@@ -138,32 +136,32 @@ button {
 }
 
 .edit-button {
-  background-color: #3498db;
-  color: white;
+  background-color: #7f5539; /* Rich brown for edit button */
+  color: #ede0d4; /* Light beige for text */
   margin-top: 1rem;
 }
 
 .edit-button:hover {
-  background-color: #2980b9;
+  background-color: #656d4a; /* Olive green for hover effect */
 }
 
 .save-button {
-  background-color: #2ecc71;
-  color: white;
+  background-color: #656d4a; /* Olive green for save button */
+  color: #ede0d4; /* Light beige for text */
 }
 
 .save-button:hover {
-  background-color: #27ae60;
+  background-color: #414833; /* Dark green-gray for hover effect */
 }
 
 .cancel-button {
-  background-color: #e74c3c;
-  color: white;
+  background-color: #a68a64; /* Muted tan for cancel button */
+  color: #ede0d4; /* Light beige for text */
   margin-top: 0.5rem;
 }
 
 .cancel-button:hover {
-  background-color: #c0392b;
+  background-color: #7f5539; /* Rich brown for hover effect */
 }
 
 .button-group {

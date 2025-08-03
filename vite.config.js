@@ -6,13 +6,16 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: '0.0.0.0',  // 👈 bắt buộc bind vào tất cả IP mạng nội bộ
-    port: 5173,       // hoặc port bạn thích
+    port: 5173,
     allowedHosts: 'all',
     cors: {
       origin: '*',
       methods: ['GET', 'POST'],
       allowedHeaders: ['Content-Type', 'Authorization'],
     },
+    allowedHosts: [
+      'thermal-southeast-joyce-flour.trycloudflare.com'
+    ]
   },
 })
 

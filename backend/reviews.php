@@ -51,6 +51,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $so_sao = (int)$data['so_sao'];
     $binh_luan = $conn->real_escape_string($data['binh_luan']);
 
+    // Kiểm tra xem đơn hàng đã được thanh toán chưa
+    $orderId = $conn->real_escape_string($data['orderId']);
+    $userId = $conn->real_escape_string($data['userId']);
+
+    // Truy vấn kiểm tra
+    $checkPaymentSql = "SELECT tt.trang_thai_thanh_toan 
+                        FROM thanh_toan tt
+                        JOIN don_dat_lich ddl ON tt.ma_don_hang = ddl.id
+                        WHERE tt.ma_don_hang = '$orderId' AND ddl.ma_nguoi_dung = '$userId' 
+                        AND tt.trang_thai_thanh_toan = 'Đã thanh toán'
+                        LIMIT 1";
+
+    $paymentResult = $conn->query($checkPaymentSql);
+
+    file_put_contents('debug_review.txt', "Check Payment SQL: $checkPaymentSql" . PHP_EOL, FILE_APPEND);
+
+
+    if ($paymentResult->num_rows === 0) {
+        http_response_code(403);
+        echo json_encode([
+            "success" => false,
+            "message" => "Bạn chỉ có thể đánh giá sau khi đã thanh toán đơn hàng."
+        ]);
+        exit;
+    }
+
+
     // Validate product ID format
     if (!preg_match('/^[a-zA-Z0-9]+$/', $id_product)) {
         http_response_code(400);

@@ -1,0 +1,381 @@
+/* accountManagement.css */
+
+/* Container chính */
+.account-management-container {
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ede0d4;
+  min-height: 100vh;
+}
+
+/* Tiêu đề chính */
+.account-management-container h2 {
+  color: #414833;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 3px solid #7f5539;
+  padding-bottom: 10px;
+}
+
+/* Error message */
+.error-message {
+  background-color: #7f5539;
+  color: #ede0d4;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 500;
+  border: 1px solid #6b462f;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Form thêm user */
+.add-user-form {
+  background: rgba(237, 224, 212, 0.9);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(127, 85, 57, 0.2);
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  border: 1px solid #a68a64;
+}
+
+.add-user-form input {
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 16px;
+  border: 2px solid #a68a64;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background-color: #ede0d4;
+  color: #414833;
+}
+
+.add-user-form input:focus {
+  outline: none;
+  border-color: #7f5539;
+  background-color: #ede0d4;
+  box-shadow: 0 0 0 3px rgba(127, 85, 57, 0.1);
+}
+
+.add-user-form input::placeholder {
+  color: #a68a64;
+}
+
+.add-user-form button {
+  background: linear-gradient(135deg, #656d4a, #414833);
+  color: #ede0d4;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.add-user-form button:hover {
+  background: linear-gradient(135deg, #414833, #2d3123);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(127, 85, 57, 0.3);
+}
+
+/* Bảng tài khoản */
+.account-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ede0d4;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(127, 85, 57, 0.2);
+}
+
+.account-table thead {
+  background: linear-gradient(135deg, #414833, #7f5539);
+  color: #ede0d4;
+}
+
+.account-table th {
+  padding: 16px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.account-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #a68a64;
+  font-size: 14px;
+  vertical-align: middle;
+  color: #414833;
+}
+
+.account-table tbody tr:nth-child(even) {
+  background-color: rgba(166, 138, 100, 0.1);
+}
+
+.account-table tbody tr:hover {
+  background-color: rgba(127, 85, 57, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.account-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Select trong bảng */
+.account-table select {
+  padding: 6px 10px;
+  border: 2px solid #a68a64;
+  border-radius: 6px;
+  background-color: #ede0d4;
+  color: #414833;
+  cursor: pointer;
+  font-size: 13px;
+  transition: border-color 0.3s ease;
+}
+
+.account-table select:hover {
+  border-color: #7f5539;
+}
+
+.account-table select:focus {
+  outline: none;
+  border-color: #7f5539;
+  box-shadow: 0 0 0 3px rgba(127, 85, 57, 0.1);
+}
+
+/* Buttons trong bảng */
+.active-button {
+  background: linear-gradient(135deg, #656d4a, #414833);
+  color: #ede0d4;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.active-button:hover {
+  background: linear-gradient(135deg, #414833, #2d3123);
+  transform: translateY(-1px);
+}
+
+.disabled-button {
+  background: linear-gradient(135deg, #a68a64, #7f5539);
+  color: #ede0d4;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.disabled-button:hover {
+  background: linear-gradient(135deg, #7f5539, #6b462f);
+  transform: translateY(-1px);
+}
+
+.delete-button {
+  background: linear-gradient(135deg, #7f5539, #a68a64);
+  color: #ede0d4;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.delete-button:hover {
+  background: linear-gradient(135deg, #6b462f, #907552);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(127, 85, 57, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .add-user-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .add-user-form input {
+    min-width: unset;
+  }
+  
+  .account-table {
+    font-size: 13px;
+  }
+  
+  .account-table th,
+  .account-table td {
+    padding: 12px 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .account-management-container {
+    padding: 15px;
+  }
+  
+  .account-management-container h2 {
+    font-size: 24px;
+  }
+  
+  .add-user-form {
+    padding: 20px;
+  }
+  
+  .account-table {
+    font-size: 12px;
+  }
+  
+  .account-table th,
+  .account-table td {
+    padding: 10px 6px;
+  }
+  
+  .account-table th {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .account-table-wrapper {
+    overflow-x: auto;
+  }
+  
+  .account-table {
+    min-width: 700px;
+  }
+  
+  .add-user-form input {
+    font-size: 16px; /* Tránh zoom trên mobile */
+  }
+}
+
+/* Loading state */
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #a68a64;
+  font-style: italic;
+}
+
+/* Success message */
+.success-message {
+  background-color: #656d4a;
+  color: #ede0d4;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 500;
+  border: 1px solid #414833;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Trạng thái empty */
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #a68a64;
+  font-style: italic;
+  font-size: 16px;
+}
+
+.empty-state::before {
+  content: "📭";
+  display: block;
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+/* Tooltip cho buttons */
+.account-table button {
+  position: relative;
+}
+
+.account-table button:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(65, 72, 51, 0.9);
+  color: #ede0d4;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  white-space: nowrap;
+  z-index: 1000;
+  margin-bottom: 5px;
+}
+
+/* Highlight cho row được select */
+.account-table tbody tr.selected {
+  background-color: rgba(101, 109, 74, 0.15);
+  border-left: 4px solid #656d4a;
+}
+
+/* Animation cho row khi thêm mới */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.account-table tbody tr.new-row {
+  animation: slideIn 0.5s ease-out;
+}
+
+/* Custom scrollbar for table wrapper */
+.account-table-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.account-table-wrapper::-webkit-scrollbar-track {
+  background: #a68a64;
+  border-radius: 4px;
+}
+
+.account-table-wrapper::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #7f5539, #414833);
+  border-radius: 4px;
+}
+
+.account-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #6b462f, #2d3123);
+}

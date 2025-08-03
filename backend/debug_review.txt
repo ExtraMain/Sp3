@@ -28,3 +28,135 @@ Content-Type: application/json
 Content-Type: application/json
 {"id_product":"case009","ten_nguoi_dung":"ldhoa","so_sao":5,"binh_luan":"halo\n","ngay":"2025-06-07"}
 Content-Type: application/json
+{"id_product":"gd001","ten_nguoi_dung":"T","so_sao":5,"binh_luan":"A","ngay":"2025-07-15"}
+Content-Type: application/json
+{"id_product":"td001","ten_nguoi_dung":"T","so_sao":4,"binh_luan":"A","ngay":"2025-07-15"}
+Content-Type: application/json
+{"id_product":"gd003","ten_nguoi_dung":"T","so_sao":5,"binh_luan":"A\n","ngay":"2025-07-16"}
+Content-Type: application/json
+{"id_product":"gd002","ten_nguoi_dung":"T","so_sao":5,"binh_luan":"B","ngay":"2025-07-16"}
+Content-Type: application/json
+{"id_product":"gd003","ten_nguoi_dung":"T","so_sao":4,"binh_luan":"C","ngay":"2025-07-16"}
+Content-Type: application/json
+{"id_product":"gd003","ten_nguoi_dung":"T","so_sao":4,"binh_luan":"D","ngay":"2025-07-16"}
+Content-Type: application/json
+{"id_product":"gd004","ten_nguoi_dung":"T","so_sao":4,"binh_luan":"E","ngay":"2025-07-16"}
+Content-Type: application/json
+{"id_product":"gd004","ten_nguoi_dung":"T","so_sao":3,"binh_luan":"F","ngay":"2025-07-16"}
+Content-Type: application/json
+{"id_product":"tl004","ten_nguoi_dung":"T","so_sao":5,"binh_luan":"v","ngay":"2025-07-17"}
+Content-Type: application/json
+{"id_product":"tm001","ten_nguoi_dung":"T","so_sao":5,"binh_luan":"b","ngay":"2025-07-17"}
+Content-Type: application/json
+{"id_product":"tm001","ten_nguoi_dung":"T","so_sao":5,"binh_luan":"h","ngay":"2025-07-17"}
+Content-Type: application/json
+{"id_product":"tm001","ten_nguoi_dung":"T","so_sao":4,"binh_luan":"h","ngay":"2025-07-17"}
+Content-Type: application/json
+{"id_product":"tm001","ten_nguoi_dung":"T","so_sao":4,"binh_luan":"h","ngay":"2025-07-17"}
+Content-Type: application/json
+{"id_product":"tm001","ten_nguoi_dung":"T","so_sao":5,"binh_luan":"h","ngay":"2025-07-17","userId":"15","orderId":123}
+Content-Type: application/json
+{"id_product":"gd001","ten_nguoi_dung":"T","so_sao":5,"binh_luan":"d","ngay":"2025-07-18","userId":"15","orderId":123}
+Content-Type: application/json
+{"id_product":"gd003","ten_nguoi_dung":"T","so_sao":5,"binh_luan":"a","ngay":"2025-07-18","userId":"15","orderId":123}
+Content-Type: application/json
+{"id_product":"gd003","ten_nguoi_dung":"T","so_sao":5,"binh_luan":"a","ngay":"2025-07-18","userId":"15","orderId":123}
+Content-Type: application/json
+{"id_product":"gd001","ten_nguoi_dung":"T","so_sao":5,"binh_luan":"n\n","ngay":"2025-07-18","userId":"15","orderId":123}
+Content-Type: application/json
+{"id_product":"gd001","ten_nguoi_dung":"T","so_sao":5,"binh_luan":"a","ngay":"2025-07-18","userId":"15","orderId":123}
+Content-Type: application/json
+{"id_product":"gd001","ten_nguoi_dung":"T","so_sao":5,"binh_luan":"d","ngay":"2025-07-18","userId":"15","orderId":123}
+Content-Type: application/json
+{"id_product":"gd001","ten_nguoi_dung":"T","so_sao":5,"binh_luan":"D","ngay":"2025-07-18","userId":"15","orderId":123}
+Content-Type: application/json
+{"id_product":"gd001","ten_nguoi_dung":"T","so_sao":5,"binh_luan":"v","ngay":"2025-07-18","userId":"15","orderId":123}
+Content-Type: application/json
+{"id_product":"gd001","ten_nguoi_dung":"T","so_sao":5,"binh_luan":"A","ngay":"2025-07-18","userId":"15","orderId":123}
+Content-Type: application/json
+{"id_product":"gd001","ten_nguoi_dung":"T","so_sao":5,"binh_luan":"A","ngay":"2025-07-18","userId":"15","orderId":123}
+Content-Type: application/json
+{"id_product":"gd005","ten_nguoi_dung":"T","so_sao":5,"binh_luan":"f","ngay":"2025-07-18","userId":"15","orderId":123}
+Content-Type: application/json
+{"id_product":"gd004","ten_nguoi_dung":"T","so_sao":5,"binh_luan":"n","ngay":"2025-07-18","userId":"15","orderId":null}
+Content-Type: application/json
+{"id_product":"gd002","ten_nguoi_dung":"T","so_sao":5,"binh_luan":"a","ngay":"2025-07-18","userId":"15","orderId":null}
+Content-Type: application/json
+{"id_product":"gd002","ten_nguoi_dung":"T","so_sao":5,"binh_luan":"a","ngay":"2025-07-18","userId":"15","orderId":null}
+Content-Type: application/json
+{"id_product":"gd002","ten_nguoi_dung":"T","so_sao":5,"binh_luan":"a","ngay":"2025-07-18","userId":"15","orderId":null}
+Content-Type: application/json
+{"id_product":"tm001","ten_nguoi_dung":"T","so_sao":5,"binh_luan":"h","ngay":"2025-07-18","userId":"15","orderId":null}
+Content-Type: application/json
+{"id_product":"gd001","ten_nguoi_dung":"Admin","so_sao":5,"binh_luan":"h","ngay":"2025-07-19","userId":"2","orderId":null}
+Content-Type: application/json
+{"id_product":"gd001","ten_nguoi_dung":"Admin","so_sao":5,"binh_luan":"f","ngay":"2025-07-19","userId":"2","orderId":null}
+Content-Type: application/json
+Check Payment SQL: 
+Check Payment SQL: 
+Check Payment SQL: 
+Check Payment SQL: 
+Check Payment SQL: 
+Check Payment SQL: 
+Check Payment SQL: 
+Check Payment SQL: 
+Check Payment SQL: 
+Check Payment SQL: 
+{"id_product":"gd001","ten_nguoi_dung":"Admin","so_sao":5,"binh_luan":"d","ngay":"2025-07-19","userId":"2","orderId":null}
+Content-Type: application/json
+{"id_product":"gd001","ten_nguoi_dung":"Admin","so_sao":5,"binh_luan":"c","ngay":"2025-07-19","userId":"2","orderId":null}
+Content-Type: application/json
+Check Payment SQL: SELECT tt.trang_thai_thanh_toan 
+                        FROM thanh_toan tt
+                        JOIN don_dat_lich ddl ON tt.ma_don_hang = ddl.id
+                        WHERE tt.ma_don_hang = '' AND ddl.ma_nguoi_dung = '2' 
+                        AND tt.trang_thai_thanh_toan = 'Đã thanh toán'
+                        LIMIT 1
+{"id_product":"gd001","ten_nguoi_dung":"Admin","so_sao":5,"binh_luan":"c","ngay":"2025-07-19","userId":"2","orderId":null}
+Content-Type: application/json
+Check Payment SQL: SELECT tt.trang_thai_thanh_toan 
+                        FROM thanh_toan tt
+                        JOIN don_dat_lich ddl ON tt.ma_don_hang = ddl.id
+                        WHERE tt.ma_don_hang = '' AND ddl.ma_nguoi_dung = '2' 
+                        AND tt.trang_thai_thanh_toan = 'Đã thanh toán'
+                        LIMIT 1
+{"id_product":"gd001","ten_nguoi_dung":"Admin","so_sao":5,"binh_luan":"a","ngay":"2025-07-19","userId":"2","orderId":null}
+Content-Type: application/json
+Check Payment SQL: SELECT tt.trang_thai_thanh_toan 
+                        FROM thanh_toan tt
+                        JOIN don_dat_lich ddl ON tt.ma_don_hang = ddl.id
+                        WHERE tt.ma_don_hang = '' AND ddl.ma_nguoi_dung = '2' 
+                        AND tt.trang_thai_thanh_toan = 'Đã thanh toán'
+                        LIMIT 1
+{"id_product":"td001","ten_nguoi_dung":"Admin","so_sao":5,"binh_luan":"a","ngay":"2025-07-19","userId":"2","orderId":"168"}
+Content-Type: application/json
+Check Payment SQL: SELECT tt.trang_thai_thanh_toan 
+                        FROM thanh_toan tt
+                        JOIN don_dat_lich ddl ON tt.ma_don_hang = ddl.id
+                        WHERE tt.ma_don_hang = '168' AND ddl.ma_nguoi_dung = '2' 
+                        AND tt.trang_thai_thanh_toan = 'Đã thanh toán'
+                        LIMIT 1
+{"id_product":"td001","ten_nguoi_dung":"Admin","so_sao":5,"binh_luan":"d","ngay":"2025-07-19","userId":"2","orderId":"168"}
+Content-Type: application/json
+Check Payment SQL: SELECT tt.trang_thai_thanh_toan 
+                        FROM thanh_toan tt
+                        JOIN don_dat_lich ddl ON tt.ma_don_hang = ddl.id
+                        WHERE tt.ma_don_hang = '168' AND ddl.ma_nguoi_dung = '2' 
+                        AND tt.trang_thai_thanh_toan = 'Đã thanh toán'
+                        LIMIT 1
+{"id_product":"td001","ten_nguoi_dung":"Admin","so_sao":5,"binh_luan":"c","ngay":"2025-07-19","userId":"2","orderId":null}
+Content-Type: application/json
+Check Payment SQL: SELECT tt.trang_thai_thanh_toan 
+                        FROM thanh_toan tt
+                        JOIN don_dat_lich ddl ON tt.ma_don_hang = ddl.id
+                        WHERE tt.ma_don_hang = '' AND ddl.ma_nguoi_dung = '2' 
+                        AND tt.trang_thai_thanh_toan = 'Đã thanh toán'
+                        LIMIT 1
+{"id_product":"gd001","ten_nguoi_dung":"Admin","so_sao":5,"binh_luan":"c","ngay":"2025-07-19","userId":"2","orderId":null}
+Content-Type: application/json
+Check Payment SQL: SELECT tt.trang_thai_thanh_toan 
+                        FROM thanh_toan tt
+                        JOIN don_dat_lich ddl ON tt.ma_don_hang = ddl.id
+                        WHERE tt.ma_don_hang = '' AND ddl.ma_nguoi_dung = '2' 
+                        AND tt.trang_thai_thanh_toan = 'Đã thanh toán'
+                        LIMIT 1

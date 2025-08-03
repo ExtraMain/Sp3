@@ -19,7 +19,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Search } from "lucide-react";
 import { FaBars, FaBlogger } from "react-icons/fa";
 import "../style/header.css";
-import products from "../page/funtion/Linh_kien.json";
+import spaServices from "../page/funtion/Dich_vu_spa.json";
 import { useCart } from "../page/funtion/useCart";
 import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
@@ -28,39 +28,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { useChat } from '../page/chat/ChatContext';
 import { useSocket } from '../page/chat/SocketContext';
 import ChatPopup from '../page/chat/ChatPopup';
-
-const allProducts = Object.values(products).flat();
-
-// Định nghĩa cấu trúc danh mục phân cấp
-const menuCategories = {
-  CPU: {
-    items: allProducts.filter(item => item.danh_muc === "CPU")
-  },
-  Mainboard: {
-    items: allProducts.filter(item => item.danh_muc === "Mainboard")
-  },
-  RAM: {
-    items: allProducts.filter(item => item.danh_muc === "RAM")
-  },
-  "Ổ cứng": {
-    items: allProducts.filter(item => item.danh_muc === "Storage")
-  },
-  VGA: {
-    items: allProducts.filter(item => item.danh_muc === "GPU")
-  },
-  PSU: {
-    items: allProducts.filter(item => item.danh_muc === "PSU")
-  },
-  Case: {
-    items: allProducts.filter(item => item.danh_muc === "Case")
-  },
-  "Tản nhiệt": {
-    items: allProducts.filter(item => item.danh_muc === "Cooling")
-  },
-  "Phụ kiện khác": {
-    items: allProducts.filter(item => item.danh_muc === "Peripherals")
-  }
-};
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -83,12 +50,24 @@ const Header = () => {
   const location = useLocation();
   const popupRef = useRef(null);
   const { totalQuantity } = useCart();
-  
+
   // Socket và Chat contexts
   const { openChat, unreadCount } = useChat();
   const { connectSocket, disconnectSocket, isConnected } = useSocket();
-  
+
   const USER_KEY = "user";
+
+  const menuCategories = {};
+  for (const categoryName in spaServices) {
+    menuCategories[categoryName] = {
+      items: spaServices[categoryName].map(item => ({
+        ...item,
+        danh_muc: categoryName
+      }))
+    };
+  }
+
+  const allProducts = Object.values(menuCategories).flatMap(category => category.items);
 
   // Check auth status and fetch user profile
   useEffect(() => {
@@ -165,7 +144,7 @@ const Header = () => {
     const fetchMenuItems = async () => {
       setIsLoading(true);
       setMenuError(null);
-      
+
       try {
         const response = await fetch('http://localhost/BaiTapNhom/backend/tt_home.php?path=top_menu', {
           method: 'GET',
@@ -173,18 +152,18 @@ const Header = () => {
             'Content-Type': 'application/json',
           },
         });
-        
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
+
         const data = await response.json();
-        
+
         if (data.success && Array.isArray(data.data)) {
           const activeItems = data.data
             .filter(item => item.trang_thai == 1)
             .sort((a, b) => parseInt(a.thu_tu) - parseInt(b.thu_tu));
-          
+
           setMenuItems(activeItems);
         } else {
           setMenuError(data.error || 'Failed to load menu items');
@@ -195,7 +174,7 @@ const Header = () => {
         setIsLoading(false);
       }
     };
-    
+
     fetchMenuItems();
   }, []);
 
@@ -214,13 +193,13 @@ const Header = () => {
             },
           }
         );
-        
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
+
         const data = await response.json();
-        
+
         if (data.success && Array.isArray(data.items)) {
           const wishlistProducts = data.items.map(item => {
             const product = allProducts.find(p => p.id === item.id_product);
@@ -243,11 +222,11 @@ const Header = () => {
       if (userDropdownRef.current && !userDropdownRef.current.contains(event.target)) {
         setShowUserDropdown(false);
       }
-      
+
       if (categoryMenuRef.current && !categoryMenuRef.current.contains(event.target)) {
         setSelectedCategory(null);
       }
-      
+
       if (popupRef.current && !popupRef.current.contains(event.target)) {
         setShowLocationPopup(false);
       }
@@ -305,8 +284,8 @@ const Header = () => {
           <div className="header-items">
             <Link to="/" className="logo-link">
               <div className="logo-container">
-                <img src="/photos/Logo.png" alt="Logo" className="logo-image" />
-                <span className="logo-text">NANOCORE4</span>
+                <img src="/photos/herb.png" alt="Logo" className="logo-image" />
+                <span className="logo-text">SP3</span>
               </div>
             </Link>
 
@@ -332,7 +311,7 @@ const Header = () => {
                           {menuCategories[category].items.map((item) => (
                             <Link
                               key={item.id}
-                              to={`/linh-kien/${item.id}`}
+                              to={`/dich-vu/${item.id}`}
                               className="subcategory-item"
                               onClick={() => setSelectedCategory(null)}
                             >
@@ -364,7 +343,7 @@ const Header = () => {
                       key={item.id}
                       className="search-suggestion-item"
                       onClick={() => {
-                        navigate(`/linh-kien/${item.id}`);
+                        navigate(`/dich-vu/${item.id}`);
                         setSearchInput("");
                       }}
                     >
@@ -400,10 +379,10 @@ const Header = () => {
                   item.ten.toLowerCase() === "tư vấn" || item.ten.toLowerCase() === "consult"
                     ? "consult-selector-btn"
                     : item.ten.toLowerCase() === "nhà phát triển" || item.ten.toLowerCase() === "developer"
-                    ? "developer-button"
-                    : item.ten.toLowerCase() === "liên hệ" || item.ten.toLowerCase() === "contact"
-                    ? "contact-button"
-                    : "menu-button"
+                      ? "developer-button"
+                      : item.ten.toLowerCase() === "liên hệ" || item.ten.toLowerCase() === "contact"
+                        ? "contact-button"
+                        : "menu-button"
                 }
               >
                 {item.ten.toLowerCase() === "liên hệ" || item.ten.toLowerCase() === "contact" ? (
@@ -413,7 +392,7 @@ const Header = () => {
                       width="24"
                       height="24"
                       fill="none"
-                      stroke="black"
+                      stroke="#7f5539"
                       strokeWidth="2"
                       viewBox="0 0 24 24"
                     >
@@ -513,7 +492,7 @@ const Header = () => {
                   {showUserDropdown && (
                     <div className="user-dropdown">
                       <Link to="/Profile" className="dropdown-item" onClick={() => setShowUserDropdown(false)}>
-                        <UserCircle size={16} /> 
+                        <UserCircle size={16} />
                         <span>Thông tin cá nhân</span>
                       </Link>
                       <Link to="/cart" className="dropdown-item" onClick={() => setShowUserDropdown(false)}>
@@ -525,11 +504,11 @@ const Header = () => {
                             </span>
                           )}
                         </div>
-                        <span>Đơn hàng của tôi</span>
+                        <span>Đơn đặt lịch của tôi</span>
                       </Link>
                       <Link to="/lich_su_don_hang" className="dropdown-item" onClick={() => setShowUserDropdown(false)}>
-                        <History size={16} /> 
-                        <span>Lịch sử đơn hàng</span>
+                        <History size={16} />
+                        <span>Lịch sử đơn đặt lịch</span>
                       </Link>
                       <Link to="/wishlist" className="dropdown-item" onClick={() => setShowUserDropdown(false)}>
                         <div style={{ position: "relative", display: "inline-block" }}>
@@ -544,13 +523,13 @@ const Header = () => {
                       </Link>
                       {user?.role === "admin" && (
                         <>
-                          <Link to="/admin" className="dropdown-item" onClick={() => setShowUserDropdown(false)}>
-                            <User size={16} /> 
+                          <Link to="/Administrator" className="dropdown-item" onClick={() => setShowUserDropdown(false)}>
+                            <User size={16} />
                             <span>Quản trị viên</span>
                           </Link>
                           <Link to="/tracuu" className="dropdown-item" onClick={() => setShowUserDropdown(false)}>
-                            <FiPackage size={16} /> 
-                            <span>Tra cứu đơn hàng</span>
+                            <FiPackage size={16} />
+                            <span>Tra cứu đơn đặt lịch</span>
                           </Link>
                         </>
                       )}
@@ -558,7 +537,7 @@ const Header = () => {
                         onClick={handleLogout}
                         className="dropdown-item logout-button"
                       >
-                        <LogOut size={16} /> 
+                        <LogOut size={16} />
                         <span>Đăng xuất</span>
                       </button>
                     </div>

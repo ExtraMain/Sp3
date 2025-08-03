@@ -17,7 +17,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 // Dynamically construct the path to Linh_kien.json
 $base_path = realpath($_SERVER['DOCUMENT_ROOT'] . '/BaiTapNhom');
-$json_file = $base_path . '/src/page/funtion/Linh_kien.json';
+$json_file = $base_path . '/src/page/funtion/Dich_vu_spa.json';
 if (!file_exists($json_file)) {
     echo json_encode(["success" => false, "message" => "JSON file not found at: " . $json_file]);
     exit();

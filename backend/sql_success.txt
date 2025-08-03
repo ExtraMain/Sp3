@@ -23,3 +23,14 @@ Review inserted: id_product=psu003, time=2025-06-04 07:46:35
 Reply inserted: id_danh_gia=7, time=2025-06-05 06:42:54
 Review inserted: id_product=cpu001, time=2025-06-05 06:47:08
 Reply inserted: id_danh_gia=1, time=2025-06-06 12:06:04
+Review inserted: id_product=gd001, time=2025-07-15 16:48:34
+Review inserted: id_product=td001, time=2025-07-15 16:49:34
+Review inserted: id_product=gd003, time=2025-07-16 05:51:59
+Review inserted: id_product=gd002, time=2025-07-16 05:52:18
+Review inserted: id_product=gd003, time=2025-07-16 05:52:36
+Review inserted: id_product=gd003, time=2025-07-16 05:52:51
+Review inserted: id_product=gd004, time=2025-07-16 05:53:12
+Review inserted: id_product=gd004, time=2025-07-16 05:53:23
+Reply inserted: id_danh_gia=57, time=2025-07-17 18:30:37
+Review inserted: id_product=td001, time=2025-07-19 06:15:18
+Reply inserted: id_danh_gia=71, time=2025-07-19 06:15:35

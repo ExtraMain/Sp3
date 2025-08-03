@@ -1,0 +1,90 @@
+.feedback-slider .slick-slide {
+    margin-top: 0px -15px;
+    padding: 0 30px;
+}
+
+.feedback-section {
+    background-size: cover;
+    background-position: center;
+    padding: 40px 20px;
+    color: #fff;
+}
+
+.feedback-overlay {
+    background-size: cover;
+    background-position: center;
+    padding: 40px 30px;
+    border-radius: 12px;
+    max-width: 1300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.feedback-overlay h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #7f5539;
+}
+
+.feedback-overlay p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #7f5539;
+}
+
+.feedback-title-line {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #7f5539, transparent);
+    flex-shrink: 0;
+}
+
+.feedback-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    margin: 0 10px;
+}
+
+.feedback-box {
+    background-color: rgba(0, 0, 0, 0.21);
+    background-image: url(https://i.pinimg.com/736x/9c/ea/3b/9cea3b351f00c5469fad5825012ca030.jpg);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 0 -10px;
+    text-align: left;
+    min-height: 220px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.feedback-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 12px;
+    border: 2px solid #fff;
+}
+
+.feedback-text {
+    font-style: italic;
+    font-size: 14px;
+    color: #f0f0f0;
+    margin-bottom: 10px;
+}
+
+.feedback-name {
+    font-weight: bold;
+    color: #fff7f1;
+    font-size: 14px;
+}
+
+.feedback-stars {
+  display: flex;
+  gap: 4px;
+  margin: 8px 0;
+}
+

@@ -24,10 +24,12 @@ $action = isset($_GET['action']) ? $_GET['action'] : '';
 switch ($action) {
     // Orders management
     case 'get_orders':
-        $sql = "SELECT dh.*, dk.user AS ten_nguoi_dung, dk.email, dk.phone
-                FROM don_hang dh
-                LEFT JOIN dang_ky dk ON dh.ma_nguoi_dung = dk.id
-                ORDER BY dh.ngay_dat DESC";
+        $sql = "SELECT dl.*, dk.user AS ten_nguoi_dung, dk.email, dk.phone
+        FROM don_dat_lich AS dl
+
+        LEFT JOIN dang_ky dk ON dl.ma_nguoi_dung = dk.id
+        ORDER BY dl.ngay_dat DESC";
+
         $result = $conn->query($sql);
         if (!$result) {
             file_put_contents($logFile, date('Y-m-d H:i:s') . " - SQL error: " . $conn->error . "\n", FILE_APPEND);
@@ -85,10 +87,8 @@ switch ($action) {
                 'san_pham' => $products
             ];
         }
-        $sql = "SELECT dcgh.* 
-                FROM dia_chi_giao_hang dcgh
-                JOIN don_hang dh ON dcgh.ma_dia_chi = dh.ma_dia_chi
-                WHERE dh.id = ?";
+        echo json_encode(['items' => $items, 'address' => $items]); // Sử dụng $items thay vì truy vấn lại
+    break;
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $id);
         $stmt->execute();
@@ -103,7 +103,7 @@ switch ($action) {
             echo json_encode(["success" => false, "error" => "Invalid order ID"]);
             break;
         }
-        $sql = "DELETE FROM don_hang WHERE id = ?";
+    $sql = "DELETE FROM don_dat_lich WHERE id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $id);
         $success = $stmt->execute();
@@ -118,7 +118,7 @@ switch ($action) {
             echo json_encode(["success" => false, "error" => "Invalid ID or status"]);
             break;
         }
-        $sql = "UPDATE don_hang SET trang_thai = ? WHERE id = ?";
+        $sql = "UPDATE don_dat_lich SET trang_thai = ? WHERE id = ?";
         $stmt = $conn->prepare($sql);
         if (!$stmt) {
             file_put_contents($logFile, date('Y-m-d H:i:s') . " - Prepare failed: " . $conn->error . "\n", FILE_APPEND);
@@ -301,7 +301,7 @@ switch ($action) {
 
     // Total payment - Fixed to return proper format
     case 'get_total_payment':
-        $sql = "SELECT SUM(tong_tien) AS tong FROM don_hang WHERE trang_thai = 'Đã thanh toán'";
+        $sql = "SELECT SUM(tong_tien) AS tong FROM don_dat_lich WHERE trang_thai = 'Đã thanh toán'";
         $result = $conn->query($sql);
         if (!$result) {
             file_put_contents($logFile, date('Y-m-d H:i:s') . " - SQL error: " . $conn->error . "\n", FILE_APPEND);
@@ -319,10 +319,11 @@ switch ($action) {
         
         // Monthly revenue
         $sql_revenue = "SELECT SUM(tong_tien) AS tong_doanh_thu 
-                       FROM don_hang 
+                       FROM don_dat_lich AS dl
+
                        WHERE trang_thai = 'Đã thanh toán' 
-                       AND MONTH(ngay_dat) = ? 
-                       AND YEAR(ngay_dat) = ?";
+                       AND MONTH(dl.ngay_dat) = ? 
+                       AND YEAR(dl.ngay_dat) = ?";
         $stmt = $conn->prepare($sql_revenue);
         $stmt->bind_param("ii", $month, $year);
         $stmt->execute();
@@ -331,9 +332,10 @@ switch ($action) {
         
         // Monthly orders count
         $sql_orders = "SELECT COUNT(*) AS tong_don_hang 
-                      FROM don_hang 
-                      WHERE MONTH(ngay_dat) = ? 
-                      AND YEAR(ngay_dat) = ?";
+                      FROM don_dat_lich AS dl
+
+                      WHERE MONTH(dl.ngay_dat) = ? 
+                      AND YEAR(dl.ngay_dat) = ?";
         $stmt = $conn->prepare($sql_orders);
         $stmt->bind_param("ii", $month, $year);
         $stmt->execute();
@@ -342,9 +344,10 @@ switch ($action) {
         
         // Active users count (users who made orders in this month)
         $sql_active_users = "SELECT COUNT(DISTINCT ma_nguoi_dung) AS nguoi_dung_hoat_dong
-                            FROM don_hang 
-                            WHERE MONTH(ngay_dat) = ? 
-                            AND YEAR(ngay_dat) = ?";
+                            FROM don_dat_lich AS dl
+
+                            WHERE MONTH(dl.ngay_dat) = ? 
+                            AND YEAR(dl.ngay_dat) = ?";
         $stmt = $conn->prepare($sql_active_users);
         $stmt->bind_param("ii", $month, $year);
         $stmt->execute();
@@ -353,10 +356,11 @@ switch ($action) {
         
         // Total payments count (paid orders)
         $sql_total_payments = "SELECT COUNT(*) AS tong_thanh_toan
-                              FROM don_hang 
+                              FROM don_dat_lich AS dl
+
                               WHERE trang_thai = 'Đã thanh toán'
-                              AND MONTH(ngay_dat) = ? 
-                              AND YEAR(ngay_dat) = ?";
+                              AND MONTH(dl.ngay_dat) = ? 
+                              AND YEAR(dl.ngay_dat) = ?";
         $stmt = $conn->prepare($sql_total_payments);
         $stmt->bind_param("ii", $month, $year);
         $stmt->execute();
@@ -366,10 +370,12 @@ switch ($action) {
         // Top selling products
         $sql_top_products = "SELECT hd.ten_san_pham
                             FROM hoa_don hd
-                            JOIN don_hang dh ON hd.ma_don_hang = dh.id
-                            WHERE MONTH(dh.ngay_dat) = ? 
-                            AND YEAR(dh.ngay_dat) = ?
-                            AND dh.trang_thai = 'Đã thanh toán'";
+                            JOIN don_dat_lich AS dl
+
+                            ON hd.ma_don_hang = dl.id
+                            WHERE MONTH(dl.ngay_dat) = ? 
+                            AND YEAR(dl.ngay_dat) = ?
+                            AND dl.trang_thai = 'Đã thanh toán'";
         $stmt = $conn->prepare($sql_top_products);
         $stmt->bind_param("ii", $month, $year);
         $stmt->execute();
@@ -395,12 +401,13 @@ switch ($action) {
         }, array_keys($product_counts), $product_counts), 0, 5);
         
         // Daily revenue for chart
-        $sql_daily_revenue = "SELECT DAY(ngay_dat) AS ngay, SUM(tong_tien) AS doanh_thu
-                             FROM don_hang
+        $sql_daily_revenue = "SELECT DAY(dl.ngay_dat) AS ngay, SUM(tong_tien) AS doanh_thu
+                             FROM don_dat_lich AS dl
+
                              WHERE trang_thai = 'Đã thanh toán'
-                             AND MONTH(ngay_dat) = ?
-                             AND YEAR(ngay_dat) = ?
-                             GROUP BY DAY(ngay_dat)
+                             AND MONTH(dl.ngay_dat) = ?
+                             AND YEAR(dl.ngay_dat) = ?
+                             GROUP BY DAY(dl.ngay_dat)
                              ORDER BY ngay";
         $stmt = $conn->prepare($sql_daily_revenue);
         $stmt->bind_param("ii", $month, $year);
@@ -415,11 +422,13 @@ switch ($action) {
         }
         
         // Daily orders for chart
-        $sql_daily_orders = "SELECT DAY(ngay_dat) AS ngay, COUNT(*) AS don_hang
-                            FROM don_hang
-                            WHERE MONTH(ngay_dat) = ?
-                            AND YEAR(ngay_dat) = ?
-                            GROUP BY DAY(ngay_dat)
+        $sql_daily_orders = "SELECT DAY(dl.ngay_dat) AS ngay, COUNT(*) AS don_dat_lich
+                            FROM don_dat_lich AS dl
+
+                            WHERE trang_thai = 'Đã thanh toán'
+                            AND MONTH(dl.ngay_dat) = ?
+                            AND YEAR(dl.ngay_dat) = ?
+                            GROUP BY DAY(dl.ngay_dat)
                             ORDER BY ngay";
         $stmt = $conn->prepare($sql_daily_orders);
         $stmt->bind_param("ii", $month, $year);
@@ -429,16 +438,18 @@ switch ($action) {
         while ($row = $result->fetch_assoc()) {
             $daily_orders[] = [
                 'ngay' => intval($row['ngay']),
-                'don_hang' => intval($row['don_hang'])
+                'don_dat_lich' => intval($row['don_dat_lich'])
             ];
         }
         
         // Daily active users for chart
-        $sql_daily_users = "SELECT DAY(ngay_dat) AS ngay, COUNT(DISTINCT ma_nguoi_dung) AS nguoi_dung
-                           FROM don_hang
-                           WHERE MONTH(ngay_dat) = ?
-                           AND YEAR(ngay_dat) = ?
-                           GROUP BY DAY(ngay_dat)
+        $sql_daily_users = "SELECT DAY(dl.ngay_dat) AS ngay, COUNT(DISTINCT ma_nguoi_dung) AS nguoi_dung
+                           FROM don_dat_lich AS dl
+
+                           WHERE trang_thai = 'Đã thanh toán'
+                           AND MONTH(dl.ngay_dat) = ?
+                           AND YEAR(dl.ngay_dat) = ?
+                           GROUP BY DAY(dl.ngay_dat)
                            ORDER BY ngay";
         $stmt = $conn->prepare($sql_daily_users);
         $stmt->bind_param("ii", $month, $year);
@@ -453,12 +464,13 @@ switch ($action) {
         }
         
         // Daily payments for chart
-        $sql_daily_payments = "SELECT DAY(ngay_dat) AS ngay, COUNT(*) AS thanh_toan
-                              FROM don_hang
+        $sql_daily_payments = "SELECT DAY(dl.ngay_dat) AS ngay, COUNT(*) AS thanh_toan
+                              FROM don_dat_lich AS dl
+
                               WHERE trang_thai = 'Đã thanh toán'
-                              AND MONTH(ngay_dat) = ?
-                              AND YEAR(ngay_dat) = ?
-                              GROUP BY DAY(ngay_dat)
+                              AND MONTH(dl.ngay_dat) = ?
+                              AND YEAR(dl.ngay_dat) = ?
+                              GROUP BY DAY(dl.ngay_dat)
                               ORDER BY ngay";
         $stmt = $conn->prepare($sql_daily_payments);
         $stmt->bind_param("ii", $month, $year);
@@ -537,8 +549,8 @@ while ($row = $result->fetch_assoc()) {
     
 
     // Tổng đơn hàng
-    $result = $conn->query("SELECT COUNT(*) AS total FROM don_hang");
-    $don_hang = $result->fetch_assoc()['total'];
+    $result = $conn->query("SELECT COUNT(*) AS total FROM don_dat_lich");
+    $don_dat_lich = $result->fetch_assoc()['total'];
 
     // Tổng người dùng
     $result = $conn->query("SELECT COUNT(*) AS total FROM dang_ky");
@@ -567,7 +579,7 @@ while ($row = $result->fetch_assoc()) {
 
     // Trả JSON
     echo json_encode([
-        'don_hang' => $don_hang,
+        'don_dat_lich' => $don_dat_lich,
         'tai_khoan' => $tai_khoan,
         'thanh_toan' => $thanh_toan,
         'san_pham' => $san_pham

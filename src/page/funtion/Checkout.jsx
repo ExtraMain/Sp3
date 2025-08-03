@@ -22,154 +22,29 @@ const Checkout = () => {
   const [finalTotalAmount, setFinalTotalAmount] = useState(0);
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState("");
-  
-  // Address selection states
-  const [provinces, setProvinces] = useState([]);
-  const [districts, setDistricts] = useState([]);
-  const [wards, setWards] = useState([]);
-  const [selectedProvince, setSelectedProvince] = useState(null);
-  const [selectedDistrict, setSelectedDistrict] = useState(null);
-  const [isLoadingProvinces, setIsLoadingProvinces] = useState(false);
-  const [isLoadingDistricts, setIsLoadingDistricts] = useState(false);
-  const [isLoadingWards, setIsLoadingWards] = useState(false);
 
   const [customerInfo, setCustomerInfo] = useState({
     fullName: user?.username || "",
-    email: user?.email || "",
+    email: user?.email || user?.identifier || "", // 👈 thêm dòng này
     phone: user?.phone || "",
-    address: "",
-    city: "",
-    district: "",
-    ward: "",
     note: "",
+    orderDate: "",
+    orderTime: "",
   });
+
+
+  const now = new Date();
+  const selectedTime = customerInfo.orderTime || "00:00";
+  const [hours, minutes] = selectedTime.split(":");
+  now.setHours(hours, minutes);
+
 
   const [formErrors, setFormErrors] = useState({});
   const [paymentMethod, setPaymentMethod] = useState("cod");
-  const [shippingMethod, setShippingMethod] = useState("ship");
 
   // Form reference for submitting from outside
   const formRef = useRef(null);
 
-  // Fetch provinces from Vietnam API
-  const fetchProvinces = async () => {
-    setIsLoadingProvinces(true);
-    try {
-      const response = await axios.get('https://provinces.open-api.vn/api/p/');
-      setProvinces(response.data || []);
-    } catch (err) {
-      console.error("Error fetching provinces:", err);
-      toast.error("Không thể tải danh sách tỉnh/thành phố");
-    } finally {
-      setIsLoadingProvinces(false);
-    }
-  };
-
-  // Fetch districts based on selected province
-  const fetchDistricts = async (provinceCode) => {
-    if (!provinceCode) return;
-    setIsLoadingDistricts(true);
-    try {
-      const response = await axios.get(`https://provinces.open-api.vn/api/p/${provinceCode}?depth=2`);
-      setDistricts(response.data.districts || []);
-      setWards([]); // Reset wards when province changes
-      setSelectedDistrict(null);
-    } catch (err) {
-      console.error("Error fetching districts:", err);
-      toast.error("Không thể tải danh sách quận/huyện");
-    } finally {
-      setIsLoadingDistricts(false);
-    }
-  };
-
-  // Fetch wards based on selected district
-  const fetchWards = async (districtCode) => {
-    if (!districtCode) return;
-    setIsLoadingWards(true);
-    try {
-      const response = await axios.get(`https://provinces.open-api.vn/api/d/${districtCode}?depth=2`);
-      setWards(response.data.wards || []);
-    } catch (err) {
-      console.error("Error fetching wards:", err);
-      toast.error("Không thể tải danh sách phường/xã");
-    } finally {
-      setIsLoadingWards(false);
-    }
-  };
-
-  // Handle province selection
-  const handleProvinceChange = (e) => {
-    const provinceCode = e.target.value;
-    const selectedProv = provinces.find(p => p.code.toString() === provinceCode);
-    
-    if (selectedProv) {
-      setSelectedProvince(selectedProv);
-      setCustomerInfo({
-        ...customerInfo,
-        city: selectedProv.name,
-        district: "",
-        ward: ""
-      });
-      fetchDistricts(provinceCode);
-    } else {
-      setSelectedProvince(null);
-      setDistricts([]);
-      setWards([]);
-      setCustomerInfo({
-        ...customerInfo,
-        city: "",
-        district: "",
-        ward: ""
-      });
-    }
-  };
-
-  // Handle district selection
-  const handleDistrictChange = (e) => {
-    const districtCode = e.target.value;
-    const selectedDist = districts.find(d => d.code.toString() === districtCode);
-    
-    if (selectedDist) {
-      setSelectedDistrict(selectedDist);
-      setCustomerInfo({
-        ...customerInfo,
-        district: selectedDist.name,
-        ward: ""
-      });
-      fetchWards(districtCode);
-    } else {
-      setSelectedDistrict(null);
-      setWards([]);
-      setCustomerInfo({
-        ...customerInfo,
-        district: "",
-        ward: ""
-      });
-    }
-  };
-
-  // Handle ward selection
-  const handleWardChange = (e) => {
-    const wardCode = e.target.value;
-    const selectedWard = wards.find(w => w.code.toString() === wardCode);
-    
-    if (selectedWard) {
-      setCustomerInfo({
-        ...customerInfo,
-        ward: selectedWard.name
-      });
-    } else {
-      setCustomerInfo({
-        ...customerInfo,
-        ward: ""
-      });
-    }
-  };
-
-  // Load provinces on component mount
-  useEffect(() => {
-    fetchProvinces();
-  }, []);
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -195,8 +70,8 @@ const Checkout = () => {
         ten: directProduct.ten || "Sản phẩm không xác định",
         gia: Number(directProduct.gia) || 0,
         so_luong: location.state?.quantity || 1,
-        danh_muc: directProduct.danh_muc || "Linh kiện",
-        images: directProduct.images?.[0] || "/placeholder.jpg",
+        danh_muc: directProduct.danh_muc || "Dịch vụ",
+        images: directProduct.image?.[0] || "/placeholder.jpg",
       };
       calculatedCartItems.push(item);
       calculatedTotal = item.gia * item.so_luong;
@@ -205,9 +80,9 @@ const Checkout = () => {
         id_product: item.id_product || "unknown",
         ten: item.ten || "Sản phẩm không xác định",
         gia: Number(item.gia) || 0,
-        so_luong: item.so_luong || 1,
-        danh_muc: item.danh_muc || "Linh kiện",
-        images: item.images || "/placeholder.jpg",
+        so_luong: item.quantity || item.so_luong || 1,
+        danh_muc: item.danh_muc || "Dịch vụ",
+        images: item.image || "/placeholder.jpg",
       }));
       calculatedTotal = calculatedCartItems.reduce(
         (total, item) => total + item.gia * item.so_luong,
@@ -218,9 +93,9 @@ const Checkout = () => {
         id_product: item.id_product,
         ten: item.ten || "Sản phẩm không xác định",
         gia: Number(item.gia) || 0,
-        so_luong: item.so_luong || 1,
-        danh_muc: item.danh_muc || "Linh kiện",
-        images: item.images,
+        so_luong: item.quantity || item.so_luong || 1,
+        danh_muc: item.danh_muc || "Dịch vụ",
+        images: item.image,
       }));
       calculatedTotal = totalAmount;
     }
@@ -240,6 +115,17 @@ const Checkout = () => {
   const validateForm = () => {
     const errors = {};
 
+    if (!customerInfo.orderDate) {
+      errors.orderDate = "Vui lòng chọn ngày đặt lịch";
+    }
+
+    if (!customerInfo.orderTime) {
+      errors.orderTime = "Vui lòng chọn giờ đặt lịch";
+    } else if (!isTimeWithinAllowedRange(customerInfo.orderTime)) {
+      errors.orderTime = "Chỉ nhận lịch từ 07:00 đến 22:59";
+    }
+
+
     if (!customerInfo.fullName.trim()) {
       errors.fullName = "Vui lòng nhập họ và tên";
     }
@@ -256,43 +142,27 @@ const Checkout = () => {
       errors.phone = "Số điện thoại không hợp lệ";
     }
 
-    if (shippingMethod === "ship") {
-      if (!customerInfo.address.trim()) {
-        errors.address = "Vui lòng nhập địa chỉ";
-      }
 
-      if (!customerInfo.city.trim()) {
-        errors.city = "Vui lòng chọn tỉnh/thành phố";
-      }
-
-      if (!customerInfo.district.trim()) {
-        errors.district = "Vui lòng chọn quận/huyện";
-      }
-    }
 
     finalCartItems.forEach((item, index) => {
       if (!item.id_product || item.id_product === "unknown") {
-        errors[`id_product_${index}`] = `Sản phẩm tại vị trí ${
-          index + 1
-        } thiếu ID`;
+        errors[`id_product_${index}`] = `Sản phẩm tại vị trí ${index + 1
+          } thiếu ID`;
       }
       if (!item.ten || item.ten === "Sản phẩm không xác định") {
         errors[`ten_${index}`] = `Sản phẩm tại vị trí ${index + 1} thiếu tên`;
       }
       if (!item.danh_muc) {
-        errors[`danh_muc_${index}`] = `Sản phẩm tại vị trí ${
-          index + 1
-        } thiếu danh mục`;
+        errors[`danh_muc_${index}`] = `Sản phẩm tại vị trí ${index + 1
+          } thiếu danh mục`;
       }
       if (!Number.isFinite(item.gia) || item.gia <= 0) {
-        errors[`gia_${index}`] = `Sản phẩm tại vị trí ${
-          index + 1
-        } có giá không hợp lệ`;
+        errors[`gia_${index}`] = `Sản phẩm tại vị trí ${index + 1
+          } có giá không hợp lệ`;
       }
       if (!item.so_luong || item.so_luong < 1) {
-        errors[`so_luong_${index}`] = `Sản phẩm tại vị trí ${
-          index + 1
-        } có số lượng không hợp lệ`;
+        errors[`so_luong_${index}`] = `Sản phẩm tại vị trí ${index + 1
+          } có số lượng không hợp lệ`;
       }
     });
 
@@ -302,47 +172,31 @@ const Checkout = () => {
 
   const updateProductStock = async (products) => {
     try {
-      const updatePromises = products.map(async (item) => {
-        const formData = new FormData();
-        formData.append("id", item.id_product);
-        formData.append("so_luong", item.so_luong);
+      const items = products.map(item => ({
+        id_san_pham: item.id_product,
+        so_luong: item.so_luong
+      }));
 
-        const response = await fetch(
-          "http://localhost/BaiTapNhom/backend/stock_json.php",
-          {
-            method: "POST",
-            body: formData,
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const result = await response.json();
-        return result;
+      const response = await fetch("http://localhost/BaiTapNhom/backend/update_stock.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items })
       });
 
-      const results = await Promise.all(updatePromises);
-      const hasError = results.some((result) => !result.success);
-      if (hasError) {
-        console.error("Stock update errors:", results);
-        return {
-          success: false,
-          message: "Không thể cập nhật tồn kho cho một số sản phẩm",
-        };
-      }
-
-      return { success: true };
-    } catch (error) {
-      console.error("Error updating stock:", error);
-      return { success: false, message: error.message };
+      const result = await response.json();
+      return result;
+    } catch (err) {
+      console.error("Lỗi update tồn kho:", err);
+      return { success: false, message: err.message };
     }
   };
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("handleSubmit triggered, paymentMethod:", paymentMethod);
+
 
     if (!validateForm()) {
       console.log("Form validation failed:", formErrors);
@@ -351,6 +205,8 @@ const Checkout = () => {
 
     setIsProcessing(true);
     setError("");
+
+    const selectedDateTime = new Date(`${customerInfo.orderDate}T${customerInfo.orderTime}`);
 
     try {
       const orderData = {
@@ -364,9 +220,8 @@ const Checkout = () => {
         })),
         customerInfo,
         paymentMethod,
-        shippingMethod,
         totalAmount: finalTotalAmount,
-        orderDate: new Date().toISOString(),
+        orderDate: new Date(selectedDateTime.getTime() - selectedDateTime.getTimezoneOffset() * 60000).toISOString()
       };
 
       console.log("Sending orderData to backend:", orderData);
@@ -379,6 +234,14 @@ const Checkout = () => {
           body: JSON.stringify(orderData),
         }
       );
+
+      if (response.status === 409) {
+        const result = await response.json();
+        setError(result.message);
+        toast.error(result.message);
+        setIsProcessing(false);
+        return;
+      }
 
       if (!response.ok) {
         const errorText = await response.text().catch(() => "No response body");
@@ -401,8 +264,8 @@ const Checkout = () => {
 
         if (!stockUpdateResult.success) {
           toast.warning(
-            "Đơn hàng đã được xử lý, nhưng có lỗi khi cập nhật tồn kho: " +
-              (stockUpdateResult.message || "Lỗi không xác định")
+            "Đơn đã được xử lý, nhưng có lỗi khi cập nhật tồn kho: " +
+            (stockUpdateResult.message || "Lỗi không xác định")
           );
         }
 
@@ -418,16 +281,20 @@ const Checkout = () => {
         } else {
           console.log("Processing COD order, navigating to invoice");
           clearCart();
+          // Lưu orderId để dùng cho đánh giá
+          if (finalCartItems.length === 1) {
+            const singleProductId = finalCartItems[0].id_product;
+            localStorage.setItem(`review_order_${singleProductId}_user_${user?.id}`, result.orderId);
+          }
+
           navigate("/invoice", {
             state: {
               orderData: {
                 customerInfo,
                 cartItems: finalCartItems,
                 totalAmount: finalTotalAmount,
-                shippingCost: shippingMethod === "ship" ? shippingCost : 0,
                 paymentMethod,
-                shippingMethod,
-                orderDate: new Date().toISOString(),
+                orderDate: selectedDateTime.toISOString(),
                 orderId: result.orderId,
               },
             },
@@ -436,7 +303,7 @@ const Checkout = () => {
       } else {
         console.error("Backend returned non-success status:", result);
         setError(result.message || "Có lỗi xảy ra trong quá trình xử lý");
-        toast.error(result.message || "Lỗi xử lý đơn hàng");
+        toast.error(result.message || "Lỗi xử lý đơn");
       }
     } catch (err) {
       console.error("Checkout error details:", {
@@ -456,29 +323,29 @@ const Checkout = () => {
       fullName: user?.username || "",
       email: user?.email || "",
       phone: user?.phone || "",
-      address: "",
-      city: "",
-      district: "",
-      ward: "",
       note: "",
+      orderDate: "",
+      orderTime: "",
     });
     setPaymentMethod("cod");
-    setShippingMethod("ship");
     setFormErrors({});
     setError("");
-    setSelectedProvince(null);
-    setSelectedDistrict(null);
-    setDistricts([]);
-    setWards([]);
   };
 
-  const shippingCost =
-    (shippingMethod === "ship" && finalTotalAmount > 10000000) ||
-    shippingMethod === "pickup"
-      ? 0
-      : 30000;
 
-  const orderTotal = finalTotalAmount + shippingCost;
+
+  const orderTotal = finalTotalAmount;
+
+
+  const isTimeWithinAllowedRange = (timeString) => {
+    const [hour, minute] = timeString.split(":").map(Number);
+    const totalMinutes = hour * 60 + minute;
+
+    const startMinutes = 7 * 60;     // 07:00
+    const endMinutes = 23 * 60;      // 23:00 (11:00 PM)
+
+    return totalMinutes >= startMinutes && totalMinutes < endMinutes;
+  };
 
   return (
     <div className="checkout-page">
@@ -486,7 +353,7 @@ const Checkout = () => {
       <div className="checkout-container">
         <div className="checkout-form-container">
           <form ref={formRef} onSubmit={handleSubmit} className="checkout-form">
-            <h3>Thông tin giao hàng</h3>
+            <h3>Thông tin đơn đặt lịch</h3>
             <div className={`form-group ${formErrors.fullName ? "error" : ""}`}>
               <label htmlFor="fullName">Họ và tên</label>
               <input
@@ -535,100 +402,60 @@ const Checkout = () => {
                 <div className="error-text">{formErrors.phone}</div>
               )}
             </div>
-            {shippingMethod === "ship" && (
-              <>
-                <div className="form-row">
-                  <div className={`form-group ${formErrors.city ? "error" : ""}`}>
-                    <label htmlFor="city">Tỉnh/Thành phố</label>
-                    <select
-                      id="city"
-                      value={selectedProvince?.code || ""}
-                      onChange={handleProvinceChange}
-                      required
-                      disabled={isLoadingProvinces}
-                    >
-                      <option value="">
-                        {isLoadingProvinces ? "Đang tải..." : "Chọn tỉnh/thành phố"}
-                      </option>
-                      {provinces.map((province) => (
-                        <option key={province.code} value={province.code}>
-                          {province.name}
-                        </option>
-                      ))}
-                    </select>
-                    {formErrors.city && (
-                      <div className="error-text">{formErrors.city}</div>
-                    )}
-                  </div>
-                  <div className={`form-group ${formErrors.district ? "error" : ""}`}>
-                    <label htmlFor="district">Quận/Huyện</label>
-                    <select
-                      id="district"
-                      value={selectedDistrict?.code || ""}
-                      onChange={handleDistrictChange}
-                      required
-                      disabled={!selectedProvince || isLoadingDistricts}
-                    >
-                      <option value="">
-                        {!selectedProvince 
-                          ? "Chọn tỉnh/thành phố trước" 
-                          : isLoadingDistricts 
-                          ? "Đang tải..." 
-                          : "Chọn quận/huyện"}
-                      </option>
-                      {districts.map((district) => (
-                        <option key={district.code} value={district.code}>
-                          {district.name}
-                        </option>
-                      ))}
-                    </select>
-                    {formErrors.district && (
-                      <div className="error-text">{formErrors.district}</div>
-                    )}
-                  </div>
-                </div>
-                <div className="form-group">
-                  <label htmlFor="ward">Phường/Xã</label>
-                  <select
-                    id="ward"
-                    value={wards.find(w => w.name === customerInfo.ward)?.code || ""}
-                    onChange={handleWardChange}
-                    disabled={!selectedDistrict || isLoadingWards}
-                  >
-                    <option value="">
-                      {!selectedDistrict 
-                        ? "Chọn quận/huyện trước" 
-                        : isLoadingWards 
-                        ? "Đang tải..." 
-                        : "Chọn phường/xã (không bắt buộc)"}
-                    </option>
-                    {wards.map((ward) => (
-                      <option key={ward.code} value={ward.code}>
-                        {ward.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div className={`form-group ${formErrors.address ? "error" : ""}`}>
-                  <label htmlFor="address">Địa chỉ cụ thể</label>
+            <div className="form-group">
+              <label>Lịch hẹn</label>
+              <div style={{ display: 'flex', gap: '1rem' }}>
+                <div>
+                  <label htmlFor="orderDate">Ngày</label>
                   <input
-                    id="address"
-                    type="text"
-                    placeholder="Nhập số nhà, tên đường (ví dụ: 123 Đường Láng)"
-                    value={customerInfo.address}
+                    type="date"
+                    id="orderDate"
+                    min={new Date().toISOString().split("T")[0]}
+                    value={customerInfo.orderDate}
                     onChange={(e) =>
-                      setCustomerInfo({ ...customerInfo, address: e.target.value })
+                      setCustomerInfo({ ...customerInfo, orderDate: e.target.value })
                     }
                     required
                   />
-                  {formErrors.address && (
-                    <div className="error-text">{formErrors.address}</div>
-                  )}
                 </div>
-              </>
-            )}
+                <div>
+                  <label htmlFor="orderTime">Giờ</label>
+                  <input
+                    type="time"
+                    id="orderTime"
+                    min="07:00"
+                    max="22:59"
+                    value={customerInfo.orderTime}
+                    onChange={(e) => {
+                      const time = e.target.value;
+                      setCustomerInfo({ ...customerInfo, orderTime: time });
+
+                      if (!isTimeWithinAllowedRange(time)) {
+                        setFormErrors((prev) => ({
+                          ...prev,
+                          orderTime: "Chỉ nhận lịch từ 07:00 đến 22:59",
+                        }));
+                      } else {
+                        setFormErrors((prev) => {
+                          const { orderTime, ...rest } = prev;
+                          return rest;
+                        });
+                      }
+                    }}
+                    required
+                  />
+                  {formErrors.orderTime && (
+                    <div className="error-text">{formErrors.orderTime}</div>
+                  )}
+
+
+                </div>
+              </div>
+            </div>
+
+
             <div className="form-group">
-              <label htmlFor="note">Ghi chú đơn hàng</label>
+              <label htmlFor="note">Ghi chú đơn</label>
               <textarea
                 id="note"
                 placeholder="Nhập ghi chú nếu có..."
@@ -641,7 +468,7 @@ const Checkout = () => {
           </form>
         </div>
         <div className="checkout-summary">
-          <h3>Đơn hàng của bạn</h3>
+          <h3>Đơn đặt lịch của bạn</h3>
           <div className="cart-items">
             {finalCartItems.length > 0 ? (
               <>
@@ -689,21 +516,8 @@ const Checkout = () => {
                     <span>Tạm tính:</span>
                     <span>{formatCurrency(finalTotalAmount)}</span>
                   </div>
-                  <div className="totals-row">
-                    <span>Phí vận chuyển:</span>
-                    <span>
-                      {shippingCost === 0
-                        ? "Miễn phí"
-                        : formatCurrency(shippingCost)}
-                    </span>
-                  </div>
-                  {shippingCost === 0 && shippingMethod === "ship" && (
-                    <div className="shipping-note">
-                      <small>
-                        Miễn phí vận chuyển cho đơn hàng trên 10.000.000₫
-                      </small>
-                    </div>
-                  )}
+
+
                   <div className="totals-row grand-total">
                     <span>Tổng thanh toán:</span>
                     <span>{formatCurrency(orderTotal)}</span>
@@ -716,37 +530,7 @@ const Checkout = () => {
               </p>
             )}
           </div>
-          <h3>Phương thức vận chuyển</h3>
-          <div className="shipping-methods">
-            <div className="shipping-option">
-              <input
-                type="radio"
-                id="ship"
-                name="shipping"
-                value="ship"
-                checked={shippingMethod === "ship"}
-                onChange={() => setShippingMethod("ship")}
-              />
-              <label htmlFor="ship">
-                <span className="shipping-icon">🚚</span>
-                <span>Giao hàng tận nơi</span>
-              </label>
-            </div>
-            <div className="shipping-option">
-              <input
-                type="radio"
-                id="pickup"
-                name="shipping"
-                value="pickup"
-                checked={shippingMethod === "pickup"}
-                onChange={() => setShippingMethod("pickup")}
-              />
-              <label htmlFor="pickup">
-                <span className="shipping-icon">🏬</span>
-                <span>Đến lấy tại cửa hàng</span>
-              </label>
-            </div>
-          </div>
+
           <h3>Phương thức thanh toán</h3>
           <div className="payment-methods">
             <div className="payment-option">
@@ -760,7 +544,7 @@ const Checkout = () => {
               />
               <label htmlFor="cod">
                 <span className="payment-icon">💵</span>
-                <span>Thanh toán khi nhận hàng (COD)</span>
+                <span>Thanh toán trực tiếp</span>
               </label>
             </div>
             <div className="payment-option">
@@ -791,7 +575,7 @@ const Checkout = () => {
                   <span className="spinner"></span> Đang xử lý...
                 </>
               ) : (
-                "Đặt hàng"
+                "Đặt lịch"
               )}
             </button>
             <button

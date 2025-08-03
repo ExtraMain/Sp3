@@ -2,31 +2,31 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from './useCart';
 import '../../style/cart.css';
-import LinhKien from './Linh_kien';
+import LinhKien from './Dich_vu_spa.json';
 import 'react-toastify/dist/ReactToastify.css';
 import { useContext } from 'react';
 import { AuthContext } from './AuthContext';
 
-
 const Cart = () => {
-
   const navigate = useNavigate();
-  const { cartItems, totalQuantity, totalAmount, removeFromCart, clearCart, updateQuantity } = useCart();
+  const { cartItems, totalQuantity, totalAmount, removeFromCart, clearCart, updateQuantityLocal } = useCart();
   const { isAuthenticated } = useContext(AuthContext) || {};
-  // Create a lookup for product details
+
   const Products = Object.values(LinhKien).flat();
-  const getProductDetails = cartItems
-    .filter(item => item.id_product)
-    .map(item => {
-      const productDetail = Products.find(lk => lk.id === item.id_product);
-      return {
-        ...item,
-        ten: productDetail?.ten || "Sản phẩm không xác định",
-        gia: productDetail?.gia || 0,
-        images: productDetail?.images?.[0] || "/placeholder.jpg",
-        danh_muc: productDetail?.danh_muc || "Linh kiện",
-      };
-    });
+  const getProductDetails = cartItems.map(item => {
+    const productDetail = Products.find(
+      lk => lk.id === item.id || lk.id === item.id_product
+    );
+
+    return {
+      ...item,
+      ten: productDetail?.ten || "Sản phẩm không xác định",
+      gia: productDetail?.gia || 0,
+      images: productDetail?.image?.[0] || "/placeholder.jpg",
+      danh_muc: productDetail?.danh_muc || "Không rõ",
+      quantity: item.quantity || 1,
+    };
+  });
 
   const handleRemoveItem = (itemId) => {
     removeFromCart(itemId);
@@ -38,13 +38,12 @@ const Cart = () => {
     }
   };
 
-
   const handleCheckout = () => {
     navigate('/checkout', { state: { products: getProductDetails } });
   };
 
   const handleContinueShopping = () => {
-    navigate('/AllLinhKien');
+    navigate('/AllDichVu');
   };
 
   const handleLoginRedirect = () => {
@@ -53,17 +52,12 @@ const Cart = () => {
 
   const handleQuantityChange = (itemId, newQuantity) => {
     if (newQuantity < 1) return;
-    updateQuantity(itemId, newQuantity);
+    updateQuantityLocal(itemId, newQuantity);
   };
 
-  // Format price
   const formatPrice = (price) => {
     return price.toLocaleString('vi-VN') + ' VND';
   };
-
-  // Debug cartItems and getProductDetails
-  console.log('cartItems:', cartItems);
-  console.log('getProductDetails:', getProductDetails);
 
   if (!isAuthenticated) {
     return (
@@ -107,7 +101,6 @@ const Cart = () => {
             <thead>
               <tr>
                 <th>Sản phẩm</th>
-                <th>Loại</th>
                 <th>Giá</th>
                 <th>Số lượng</th>
                 <th>Hành động</th>
@@ -115,27 +108,26 @@ const Cart = () => {
             </thead>
             <tbody>
               {getProductDetails.map((item) => (
-                <tr key={item.id_product} className="cart-item">
+                <tr key={item.id_product || item.id} className="cart-item">
                   <td>
                     <div className="item-info">
                       <img src={item.images} alt={item.ten} className="item-image" />
                       <span className="item-name">{item.ten}</span>
                     </div>
                   </td>
-                  <td>{item.danh_muc}</td>
                   <td>{formatPrice(item.gia)}</td>
                   <td>
                     <input
                       type="number"
                       min="1"
-                      value={item.so_luong || 1}
-                      onChange={(e) => handleQuantityChange(item.id_product, parseInt(e.target.value))}
+                      value={item.quantity || 1}
+                      onChange={(e) => handleQuantityChange(item.id || item.id_product, parseInt(e.target.value))}
                       style={{ width: '60px' }}
                     />
                   </td>
                   <td>
                     <button
-                      onClick={() => handleRemoveItem(item.id_product)}
+                      onClick={() => handleRemoveItem(item.id || item.id_product)}
                       className="remove-button"
                       aria-label="Xóa sản phẩm"
                     >

@@ -1,9 +1,9 @@
 /* footer.css */
 .site-footer {
-  background: #FFFFFF; /* Nền trắng */
+  background: #ede0d4; /* Light beige from palette */
   padding-top: 40px;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #000000; /* Chữ đen để tương phản trên nền trắng */
+  color: #414833; /* Dark green for text */
   max-width: 1400px;
   margin: 0 auto;
   display: flex;
@@ -48,20 +48,20 @@
 .footer-logo-text {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #FF0000; /* Chữ đỏ */
+  color: #a68a64; /* Light brown from palette */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-logo-text:hover {
-  color: #B0E0E6; /* Tím neon khi hover */
+  color: #656d4a; /* Muted green from palette */
 }
 
 .footer-phone-number a {
   font-family: 'Jost', sans-serif;
   font-weight: bold;
   font-size: 19px;
-  color: #B0E0E6; /* Link tím neon */
+  color: #656d4a; /* Muted green for phone number */
   line-height: 24px;
   margin-top: -10px;
   text-decoration: none;
@@ -69,12 +69,12 @@
 }
 
 .footer-phone-number a:hover {
-  color: #FF0000; /* Đỏ khi hover */
+  color: #a68a64; /* Light brown on hover */
 }
 
 .footer-description {
   font-size: 14px;
-  color: #000000; /* Chữ đen để tương phản trên nền trắng */
+  color: #414833; /* Dark green for text */
   line-height: 1.8;
   margin: 16px 0;
   max-width: 270px;
@@ -85,7 +85,7 @@
 .column-title {
   font-weight: bold;
   margin-bottom: 10px;
-  color: #FF0000; /* Tiêu đề đỏ */
+  color: #a68a64; /* Light brown for titles */
   text-transform: uppercase;
   font-size: 14px;
   position: relative;
@@ -98,7 +98,7 @@
   left: 0;
   width: 30px;
   height: 2px;
-  background: linear-gradient(90deg, #FF0000, #B0E0E6);
+  background: linear-gradient(90deg, #a68a64, #656d4a); /* Gradient from light brown to muted green */
   transition: width 0.3s ease;
 }
 
@@ -117,14 +117,14 @@
 
 .footer-links li a {
   text-decoration: none;
-  color: #000000; /* Chữ đen để tương phản trên nền trắng */
+  color: #414833; /* Dark green for links */
   font-style: italic;
   font-size: 14px;
   transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s;
 }
 
 .footer-links li a:hover {
-  color: #B0E0E6; /* Link tím neon khi hover */
+  color: #656d4a; /* Muted green on hover */
   transform: translateX(4px);
 }
 
@@ -137,7 +137,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 8px;
-  color: #000000; /* Chữ đen để tương phản trên nền trắng */
+  color: #414833; /* Dark green for contact text */
   font-size: 14px;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -148,21 +148,21 @@
 
 .contact-icon {
   margin-right: 8px;
-  color: #000000; /* Icon đen để tương phản trên nền trắng */
+  color: #414833; /* Dark green for icons */
   font-size: 16px;
   transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-item:hover .contact-icon {
-  color: #FF0000; /* Icon đỏ khi hover */
+  color: #a68a64; /* Light brown on hover */
 }
 
 .footer-bottom {
-  border-top: 1px solid #CCCCCC; /* Viền xám nhạt */
+  border-top: 1px solid #ede0d4; /* Light beige for border */
   padding: 20px 0;
   text-align: center;
   font-size: 14px;
-  background-color: #FFFFFF; /* Nền trắng */
+  background-color: #ede0d4; /* Light beige for bottom section */
   position: relative;
 }
 
@@ -174,19 +174,19 @@
 }
 
 .terms-links a {
-  color: #000000; /* Link đen để tương phản trên nền trắng */
+  color: #414833; /* Dark green for links */
   text-decoration: none;
   font-size: 13px;
   transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s;
 }
 
 .terms-links a:hover {
-  color: #B0E0E6; /* Link tím neon khi hover */
+  color: #656d4a; /* Muted green on hover */
   transform: translateY(-2px);
 }
 
 .separator {
-  color: #000000; /* Phân cách đen để tương phản trên nền trắng */
+  color: #414833; /* Dark green for separator */
 }
 
 /* Icon */
@@ -204,15 +204,15 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: #CCCCCC; /* Nền xám nhạt */
-  color: #000000; /* Icon đen */
+  background-color: #ede0d4; /* Light beige for icon background */
+  color: #414833; /* Dark green for icons */
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .social-icons a:hover {
-  background-color: #B0E0E6; /* Nền tím neon khi hover */
-  color: #FFFFFF; /* Icon trắng */
+  background-color: #656d4a; /* Muted green on hover */
+  color: #ede0d4; /* Light beige for icon text */
   transform: scale(1.1);
 }
 
@@ -220,7 +220,7 @@
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #FF0000; /* Tiêu đề đỏ */
+  color: #a68a64; /* Light brown for social title */
   position: relative;
 }
 
@@ -231,7 +231,7 @@
   left: 0;
   width: 30px;
   height: 2px;
-  background: linear-gradient(90deg, #FF0000, #B0E0E6);
+  background: linear-gradient(90deg, #a68a64, #656d4a); /* Gradient from light brown to muted green */
   transition: width 0.3s ease;
 }
 
@@ -243,8 +243,8 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #CCCCCC; /* Nền xám nhạt */
-  color: #000000; /* Icon đen */
+  background-color: #ede0d4; /* Light beige for button */
+  color: #414833; /* Dark green for icon */
   border: none;
   border-radius: 50%;
   width: 48px;
@@ -259,8 +259,8 @@
 }
 
 .scroll-to-top:hover {
-  background-color: #FF0000; /* Nền đỏ khi hover */
-  color: #FFFFFF; /* Icon trắng */
+  background-color: #a68a64; /* Light brown on hover */
+  color: #ede0d4; /* Light beige for icon */
   transform: scale(1.1);
 }
 
@@ -278,8 +278,8 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: #CCCCCC; /* Nền xám nhạt */
-  color: #000000; /* Icon đen */
+  background-color: #ede0d4; /* Light beige for icon background */
+  color: #414833; /* Dark green for icons */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -289,8 +289,8 @@
 }
 
 .fixed-social-icons a:hover {
-  background-color: #B0E0E6; /* Nền tím neon khi hover */
-  color: #FFFFFF; /* Icon trắng */
+  background-color: #656d4a; /* Muted green on hover */
+  color: #ede0d4; /* Light beige for icon text */
   transform: scale(1.1);
 }
 
@@ -299,6 +299,9 @@
   justify-content: center;
   gap: 10px;
   margin-top: 20px;
+  background-color: #ede0d4; /* Light beige for payment icons background */
+  padding: 10px;
+  border-radius: 8px;
 }
 
 .payment-icons img {

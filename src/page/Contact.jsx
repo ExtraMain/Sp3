@@ -116,7 +116,7 @@ const handleSubmit = async (e) => {
       </div>
 
       <div className="image-section">
-        <img src="/photos/contact.jpg" alt="Contact" />
+        <img src="/photos/r.jpg" alt="Contact" />
       </div>
     </div>
   );

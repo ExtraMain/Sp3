@@ -37,5 +37,57 @@
     "room": "general",
     "type": "text",
     "timestamp": "2025-06-08T08:50:22.662Z"
+  },
+  {
+    "id": "1751528120038ll7ppnxly",
+    "content": "ok",
+    "user": {
+      "id": "15",
+      "username": "T",
+      "avatar": "http://localhost/BaiTapNhom/backend/uploads/avatars/avatar_tung@gmail.com.png",
+      "role": "user"
+    },
+    "room": "general",
+    "type": "text",
+    "timestamp": "2025-07-03T07:35:20.039Z"
+  },
+  {
+    "id": "1752639395777prgqcrnlk",
+    "content": "alo",
+    "user": {
+      "id": "15",
+      "username": "T",
+      "avatar": "http://localhost/BaiTapNhom/backend/uploads/avatars/avatar_tung@gmail.com.png",
+      "role": "user"
+    },
+    "room": "general",
+    "type": "text",
+    "timestamp": "2025-07-16T04:16:35.778Z"
+  },
+  {
+    "id": "17526394131540sd7dy3ib",
+    "content": "alo",
+    "user": {
+      "id": "15",
+      "username": "T",
+      "avatar": "http://localhost/BaiTapNhom/backend/uploads/avatars/avatar_tung@gmail.com.png",
+      "role": "user"
+    },
+    "room": "general",
+    "type": "text",
+    "timestamp": "2025-07-16T04:16:53.155Z"
+  },
+  {
+    "id": "17528468513096hijrrpef",
+    "content": "lo cc",
+    "user": {
+      "id": "2",
+      "username": "Admin",
+      "avatar": "http://localhost/BaiTapNhom/backend/uploads/avatars/avatar_admin@gmail.com.jpg",
+      "role": "admin"
+    },
+    "room": "general",
+    "type": "text",
+    "timestamp": "2025-07-18T13:54:11.310Z"
   }
 ]

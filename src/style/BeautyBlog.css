@@ -1,0 +1,286 @@
+/* BeautyBlog.css */
+
+.beauty-blog {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #ede0d4 0%, #a68a64 100%);
+  min-height: 100vh;
+}
+
+.blog-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 40px 0;
+  background: linear-gradient(135deg, #7f5539 0%, #656d4a 100%);
+  border-radius: 20px;
+  color: #ede0d4;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.blog-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.blog-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  padding: 0 10px;
+}
+
+.blog-post {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.blog-post:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.blog-image-container {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.blog-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.blog-post:hover .blog-image {
+  transform: scale(1.05);
+}
+
+.blog-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(127, 85, 57, 0.8), rgba(65, 72, 51, 0.8));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 15px;
+}
+
+.blog-post:hover .blog-overlay {
+  opacity: 1;
+}
+
+.blog-category-tag {
+  background: rgba(237, 224, 212, 0.95);
+  color: #7f5539;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.blog-content {
+  padding: 25px;
+}
+
+.blog-post-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #414833;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.blog-post:hover .blog-post-title {
+  color: #7f5539;
+}
+
+.blog-description {
+  color: #656d4a;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.blog-meta {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #a68a64;
+  margin-bottom: 20px;
+}
+
+.blog-date {
+  font-weight: 500;
+}
+
+.blog-separator {
+  margin: 0 10px;
+  color: #ede0d4;
+}
+
+.blog-comment {
+  color: #7f5539;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.blog-comment:hover {
+  color: #a68a64;
+}
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  color: #7f5539;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  border: 2px solid #7f5539;
+  border-radius: 25px;
+  background: linear-gradient(45deg, transparent, transparent);
+}
+
+.read-more:hover {
+  background: linear-gradient(45deg, #7f5539, #656d4a);
+  color: #ede0d4;
+  transform: translateX(5px);
+}
+
+.arrow {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.read-more:hover .arrow {
+  transform: translateX(5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .beauty-blog {
+    padding: 15px;
+  }
+  
+  .blog-header {
+    padding: 30px 15px;
+    margin-bottom: 30px;
+  }
+  
+  .blog-title {
+    font-size: 2.2rem;
+  }
+  
+  .blog-subtitle {
+    font-size: 1rem;
+  }
+  
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0;
+  }
+  
+  .blog-content {
+    padding: 20px;
+  }
+  
+  .blog-post-title {
+    font-size: 1.2rem;
+  }
+  
+  .blog-description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-title {
+    font-size: 1.8rem;
+  }
+  
+  .blog-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .blog-grid {
+    gap: 15px;
+  }
+  
+  .blog-content {
+    padding: 15px;
+  }
+  
+  .blog-image-container {
+    height: 180px;
+  }
+}
+
+/* Custom Scrollbar */
+.beauty-blog::-webkit-scrollbar {
+  width: 8px;
+}
+
+.beauty-blog::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.beauty-blog::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border-radius: 10px;
+}
+
+.beauty-blog::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #764ba2, #667eea);
+}
+
+/* Animation for loading */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.blog-post {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.blog-post:nth-child(even) {
+  animation-delay: 0.1s;
+}
+
+.blog-post:nth-child(3n) {
+  animation-delay: 0.2s;
+}

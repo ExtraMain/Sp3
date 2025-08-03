@@ -1,0 +1,998 @@
+{
+    "Gội đầu dưỡng sinh": [
+        {
+            "ten": "Gội đầu dưỡng sinh truyền thống",
+            "mo_ta": "“Gội đầu dưỡng sinh truyền thống” là liệu trình chăm sóc tóc và thư giãn toàn diện dựa trên phương pháp y học cổ truyền. Dịch vụ sử dụng nước thảo dược thiên nhiên kết hợp với kỹ thuật massage đầu – vai – gáy chuyên sâu, giúp làm sạch da đầu, giảm rụng tóc, tăng tuần hoàn máu não và giải tỏa căng thẳng tinh thần.",
+            "quy_trinh": [
+                "Tiếp đón & tư vấn tình trạng tóc.",
+                "Ủ nước thảo dược ấm lên tóc.",
+                "Gội đầu nhẹ nhàng",
+                "Liệu pháp bấm huyệt & thư giãn đầu – cổ truyền thống",
+                "Xả tóc bằng nước thảo dược",
+                "Thoa tinh dầu dưỡng tóc"
+            ],
+            "quy_trinh_dieu_tri": [
+                "Buổi 1: Làm sạch",
+                "Buổi 2: Massage",
+                "Buổi 3: Dưỡng tóc"
+            ],
+            "thoi_luong": "30 - 45 phút",
+            "gia": 138000,
+            "lieu_trinh": "3 buổi (~414.000đ)",
+            "san_pham_di_kem": [
+                "Vỏ bưởi",
+                "Xả",
+                "Gừng tươi",
+                "Lá trầu không",
+                "Hương nhu(tía tô đất)",
+                "Tinh chất thảo dược",
+                "Khăn ấm"
+            ],
+            "hieu_qua": "Giảm stress, tăng tuần hoàn máu, giảm rụng tóc, làm sạch da đầu, kích thích mọc tóc.",
+            "uu_diem": [
+                "Không hóa chất",
+                "Thư giãn cao",
+                "An toàn"
+            ],
+            "doi_tuong": [
+                "Người mất ngủ",
+                "Người làm việc văn phòng",
+                "Người bị rụng tóc, tóc yếu",
+                "Phụ nữ sau sinh"
+            ],
+            "bi_quyet_cham_soc_sau": [
+                "Không gội lại trong 12h",
+                "Tránh dùng hóa chất",
+                "Dưỡng tóc thường xuyên"
+            ],
+            "cam_ket": "Hiệu quả thư giãn rõ rệt sau lần đầu.",
+            "id": "gd001",
+            "image": [
+                "https:\/\/setupspatrongoi.vn\/wp-content\/uploads\/2023\/06\/hinh-anh-goi-dau-duong-sinh.jpg",
+                "https:\/\/thaomocanan.vn\/wp-content\/uploads\/2021\/04\/goi-dau-duong-sinh-chuan.png",
+                "https:\/\/royalpalacedesign.vn\/wp-content\/uploads\/2022\/12\/thiet-ke-spa-goi-dau-duong-sinh-hien-dai2.jpg"
+            ],
+            "so_luong": 10
+        },
+        {
+            "ten": "Liệu trình chăm sóc tóc và da đầu bằng bưởi",
+            "mo_ta": "Liệu pháp đặc biệt kết hợp bưởi bạc hà và collagen, mang lại trải nghiệm làm sạch – phục hồi – thư giãn toàn diện. Phù hợp cho khách hàng muốn vừa chăm sóc tóc chuyên sâu, vừa massage thư giãn đầu – cổ – vai gáy, trong một buổi gội đầu spa tiêu chuẩn.Trị liệu dựa trên nguyên lý Đông Y kết hợp chăm sóc hiện đại, sử dụng các sản phẩm từ vỏ bưởi – bạc hà – collagen thiên nhiên giúp thanh lọc da đầu, chống rụng tóc và phục hồi nang tóc.",
+            "quy_trinh": [
+                "Ngâm chân thư giãn",
+                "Gội đầu bằng vỏ bưởi bạc hà",
+                "Massage ấn huyệt đầu – vai – gáy",
+                "Xả tóc với collagen bưởi",
+                "Sấy tóc tạo kiểu nhẹ",
+                "Tinh chất dưỡng tóc"
+            ],
+            "quy_trinh_dieu_tri": [
+                "Buổi 1: Làm sạch da đầu + giảm dầu thừa",
+                "Buổi 2: Dưỡng phục hồi tóc hư tổn",
+                "Buổi 3: Massage thư giãn + duy trì hiệu quả"
+            ],
+            "thoi_luong": "45 phút",
+            "gia": 249000,
+            "lieu_trinh": "3 buổi",
+            "san_pham_di_kem": [
+                "Tinh chất vỏ bưởi bạc hà",
+                "Xả collagen chiết xuất bưởi",
+                "Tinh dầu ngâm chân",
+                "Máy massage – ghế ngả – khăn ấm – sấy tạo kiểu"
+            ],
+            "hieu_qua": "Làm sạch sâu da đầu, giảm bã nhờn và mồ hôi, tóc bóng mượt, giảm gãy rụng, da đầu khỏe, nang tóc phục hồi, giảm đau mỏi cổ – vai – gáy do ngồi lâu, stress, tinh thần thư giãn, ngủ ngon hơn.",
+            "uu_diem": [
+                "Nguyên liệu thiên nhiên",
+                "Trị liệu thư giãn - chăm sóc chuyên sâu",
+                "Phù hợp với mọi loại "
+            ],
+            "doi_tuong": [
+                "Người có tóc dầu, dễ rụng",
+                "Nhân viên văn phòng bị stress, mỏi vai gáy",
+                "Phụ nữ sau sinh",
+                "Người lớn tuổi cần thư giãn nhẹ nhàng",
+                "Học sinh, sinh viên cần chăm sóc da đầu"
+            ],
+            "bi_quyet_cham_soc_sau": [
+                "Không gội lại trong 24h",
+                "Tránh dùng hóa chất tạo kiểu(uốn, nhuộm)",
+                "Dưỡng tóc thường xuyên",
+                "Uống nhiều nước để hỗ trợ thải độc",
+                "Tái thực hiện dịch vụ 1 lần\/tuần để duy trì tóc chắc khỏe"
+            ],
+            "cam_ket": "Hiệu quả thư giãn rõ rệt sau lần đầu.",
+            "id": "gd002",
+            "image": [
+                "https:\/\/hocvienyumiacademy.vn\/wp-content\/uploads\/2020\/04\/goi-dau-duong-sinh-la-gi.jpg",
+                "https:\/\/tse1.explicit.bing.net\/th\/id\/OIP.HppAypb1pk-jtbXi0x1KSAHaFj?w=1333&h=1000&rs=1&pid=ImgDetMain&o=7&rm=3",
+                "https:\/\/img.freepik.com\/premium-photo\/gentle-temples-massage_274689-40917.jpg"
+            ],
+            "so_luong": 5
+        },
+        {
+            "ten": "Liệu pháp dưỡng sinh thủ đạo thang",
+            "mo_ta": "Liệu pháp Dưỡng sinh Thủ Đạo Thang là sự kết hợp giữa y học cổ truyền và spa hiện đại, ứng dụng nhân sâm, bưởi, collagen, thảo dược 2 thang, cùng kỹ thuật massage chuyên sâu trên đầu – cổ – vai – tay – vùng đầu. Đây là dịch vụ trị liệu đỉnh cao, mang đến trải nghiệm toàn diện: thư giãn cơ thể, phục hồi tinh thần và chăm sóc tóc chuyên sâu.Thủ đạo = “liệu pháp dùng tay tác động huyệt đạo”; Thang dược = “thuốc sắc\/ủ từ dược liệu”. Dịch vụ này mô phỏng liệu pháp dưỡng sinh cung đình xưa.",
+            "quy_trinh": [
+                "Ngâm chân thảo dược",
+                "Massage đầu – khởi động huyệt đạo",
+                "Gội đầu bằng nhân sâm – bưởi",
+                "Ủ dưỡng sinh với 2 thang dược đặc biệt",
+                "Gội lại bằng nhân sâm – bưởi lần 2",
+                "Xả tóc bằng collagen nhân sâm",
+                "Massage chuyên sâu đầu – cổ – vai – gáy",
+                "Chăm sóc da vùng đầu, cổ – vòi vòm nước dưỡng sinh",
+                "Sấy tóc – hoàn tất liệu trình"
+            ],
+            "quy_trinh_dieu_tri": [
+                "Buổi 1:  Giải độc da đầu + massage đầu cổ",
+                "Buổi 2: Dưỡng sâu + giảm đau mỏi vai gáy",
+                "Buổi 3: Tăng cường lưu thông máu não + chăm sóc da đầu"
+            ],
+            "thoi_luong": "90 phút",
+            "gia": 399000,
+            "lieu_trinh": "3 buổi",
+            "san_pham_di_kem": [
+                "Dầu gội nhân sâm – bưởi",
+                "Xả collagen nhân sâm",
+                "2 thang dược dưỡng sinh(cam thảo, địa liền, gừng, quế chi,...)",
+                "Vòi vòm nước dưỡng sinh",
+                "Tinh dầu, đá nóng, khăn thảo mộc,..."
+            ],
+            "hieu_qua": "Giảm stress, sạch da đầu, ngủ sâu, đầu óc minh mẫn, tóc chắc khỏe, cân bằng năng lượng cơ thể.",
+            "uu_diem": [
+                "Không hóa chất",
+                "Thư giãn cao",
+                "An toàn"
+            ],
+            "doi_tuong": [
+                "Người mất ngủ, đau đầu, chóng mặt",
+                "Da đầu nhờn, tóc yếu",
+                "Phụ nữ sau sinh",
+                "Người trung niên, lớn tuổi cần lưu thông máu"
+            ],
+            "bi_quyet_cham_soc_sau": [
+                "Không gội lại trong 24h",
+                "Tránh dùng hóa chất",
+                "Ngủ sớm – tránh căng thẳng sau buổi trị liệu",
+                "Dưỡng tóc thường xuyên"
+            ],
+            "cam_ket": "Hiệu quả thư giãn rõ rệt sau lần đầu.",
+            "id": "gd003",
+            "image": [
+                "https:\/\/img.freepik.com\/premium-photo\/gentle-temples-massage_274689-40917.jpg",
+                "https:\/\/tse3.mm.bing.net\/th\/id\/OIP.6HkaOJkcVWgvF0DO5aAZnQHaFA?rs=1&pid=ImgDetMain&o=7&rm=3",
+                "https:\/\/tse2.mm.bing.net\/th\/id\/OIP.9eONXUsSJ6OfiaBQLCN7TwHaE6?rs=1&pid=ImgDetMain&o=7&rm=3"
+            ],
+            "so_luong": 10
+        },
+        {
+            "ten": "Gội đầu dưỡng sinh",
+            "mo_ta": "Gội đầu phục hồi tóc chuyên sâu là dịch vụ tập trung vào chăm sóc – dưỡng – tái tạo cấu trúc tóc, sử dụng serum – dầu hấp – collagen – dầu ủ chuyên trị cho những mái tóc yếu, khô xơ, hư tổn do hóa chất hoặc stress. Kết hợp với kỹ thuật massage nhẹ nhàng, liệu trình này không chỉ phục hồi tóc mà còn nuôi dưỡng da đầu và thư giãn tinh thần. Phù hợp với khách sau uốn\/nhuộm\/tẩy tóc, tóc dễ gãy rụng, hoặc cần phục hồi cấp tốc.",
+            "quy_trinh": [
+                "Làm ướt tóc",
+                "Thoa dầu gội",
+                "Thoa dầu hấp\/serum phục hồi",
+                "Ủ tóc bằng khăn ấm hoặc máy hấp nhiệt",
+                "Massage đầu nhẹ nhàng",
+                "Xả sạch",
+                "Thoa tinh dầu dưỡng & sấy nhẹ"
+            ],
+            "quy_trinh_dieu_tri": [
+                "Buổi 1 - 2: Làm sạch + hấp dầu",
+                "Buổi 3 - 5: Bổ sung serum – collagen – massage phục hồi da đầu"
+            ],
+            "thoi_luong": "30 - 60 phút",
+            "gia": 2980000,
+            "lieu_trinh": "3 - 5 buổi ",
+            "san_pham_di_kem": [
+                "Dầu hấp\/ủ tóc collagen, argan, protein thực vật",
+                "Serum phục hồi tóc chuyên sâu (biotin, keratin)",
+                "Máy hấp tóc, khăn ủ nóng",
+                "Tinh dầu dưỡng khô (bưởi, oải hương, argan)"
+            ],
+            "hieu_qua": "Phục hồi cấu trúc sợi tóc, àm mềm tóc, giảm gãy rụng và xơ rối, tăng độ bóng mượt và đàn hồi cho mái tóc.",
+            "uu_diem": [
+                "Dịch vụ cá nhân hóa theo tình trạng tóc",
+                "Sản phẩm cao cấp, không hóa chất độc hại",
+                "Kết hợp thư giãn tinh thần và chăm sóc chuyên sâu"
+            ],
+            "doi_tuong": [
+                "Khách hàng vừa uốn – duỗi – nhuộm – tẩy tóc",
+                "Tóc yếu, dễ gãy, khô xơ, chẻ ngọn",
+                "Phụ nữ trung niên, người lớn tuổi cần dưỡng tóc chắc khỏe"
+            ],
+            "bi_quyet_cham_soc_sau": [
+                "Không dùng hóa chất tạo kiểu trong vòng 3 – 5 ngày",
+                "Tránh dùng hóa chất",
+                "Dưỡng tóc thường xuyên",
+                "Duy trì phục hồi định kỳ để tóc khỏe bền vững"
+            ],
+            "cam_ket": "Hiệu quả thư giãn rõ rệt sau lần đầu.",
+            "id": "gd004",
+            "image": [
+                "https:\/\/hispa.vn\/wp-content\/uploads\/2022\/09\/goi-dau-duong-sinh-4.jpg",
+                "https:\/\/hispa.vn\/wp-content\/uploads\/2022\/09\/goi-dau-duong-sinh-016.jpg",
+                "https:\/\/homiespavn.com\/uploads\/articles\/dich-vu-goi-dau-massage-1.jpg"
+            ],
+            "so_luong": 10
+        },
+        {
+            "ten": "Gội đầu kết hợp xông hơi thảo dược",
+            "mo_ta": "Dịch vụ gội đầu kết hợp xông hơi thảo dược là phương pháp chăm sóc tóc và da đầu chuyên sâu, giúp thải độc – làm sạch sâu – hỗ trợ hấp thu dưỡng chất tối đa. Khách hàng sẽ được xông hơi vùng đầu bằng hơi nước nóng có chứa thảo mộc tự nhiên như sả, gừng, bạc hà, vỏ bưởi… trước hoặc sau khi gội. Đây là liệu pháp kết hợp giữa truyền thống và hiện đại, phù hợp cho người có da đầu nhờn, dễ bí bách, ngứa hoặc cần đào thải độc tố do hóa chất (nhuộm, uốn…).",
+            "quy_trinh": [
+                "Xông hơi thảo dược vùng đầu (trước hoặc sau khi gội)",
+                "Làm ướt tóc bằng nước ấm",
+                "Gội đầu bằng dầu gội thiên nhiên",
+                "Massage thư giãn cổ - vai - gáy",
+                "Xả sạch",
+                "Sấy khô - tạo kiểu nhẹ nhàng",
+                "Thoa tinh dầu hoặc serum dưỡng tóc"
+            ],
+            "quy_trinh_dieu_tri": [
+                "Buổi 1 - 2: Xông + làm sạch",
+                "Buổi 3: Dưỡng tóc chuyên sâu",
+                "Buổi 4 - 5: Duy trì và phục hồi toàn diện"
+            ],
+            "thoi_luong": "45 phút",
+            "gia": 220000,
+            "lieu_trinh": "3 - 5 buổi",
+            "san_pham_di_kem": [
+                "Thảo mộc xông: sả, vỏ bưởi, gừng, bạc hà, quế, ngải cứu",
+                "Dầu gội thiên nhiên: dịu nhẹ, không sulfate",
+                "Tinh dầu dưỡng tóc",
+                "Máy xông hơi vùng đầu\/cabin mini",
+                "Khăn ấm, ghế ngả, máy massage thư giãn"
+            ],
+            "hieu_qua": "Thải độc và làm sạch sâu lỗ chân lông da đầu, sạch da đầu, ngủ ngon, giảm căng .",
+            "uu_diem": [
+                "Không hóa chất",
+                "Thư giãn cao",
+                "An toàn",
+                "Hiệu quả cao cho da đầu bị bức bí hoặc tóc yếu"
+            ],
+            "doi_tuong": [
+                "Người có da đầu nhờn, dễ bị gàu – ngứa",
+                "Người vừa tẩy, nhuộm tóc hoặc bị tích tụ hóa chất",
+                "Người tóc rụng, tóc mỏng, hoặc da đầu yếu",
+                "Người làm việc áp lực, cần thư giãn sâu"
+            ],
+            "bi_quyet_cham_soc_sau": [
+                "Không gội lại trong 24h",
+                "Tránh dùng hóa chất",
+                "Dưỡng tóc thường xuyên",
+                "Hạn chế ra gió\/lạnh ngay sau xông"
+            ],
+            "cam_ket": "Hiệu quả thư giãn rõ rệt sau lần đầu.",
+            "id": "gd005",
+            "image": [
+                "https:\/\/tse4.mm.bing.net\/th\/id\/OIP.vPLEjgbBqVikApfuFpCL9gHaE7?rs=1&pid=ImgDetMain&o=7&rm=3",
+                "https:\/\/down-vn.img.susercontent.com\/file\/sg-11134201-23020-1s61qz4qqenv75"
+            ],
+            "so_luong": 10
+        }
+    ],
+    "Trắng da": [
+        {
+            "ten": "Liệu trình tắm trắng toàn thân cơ bản",
+            "mo_ta": "Liệu trình nhẹ nhàng sử dụng các nguyên liệu thiên nhiên như sữa non, cám gạo và vitamin C để làm sạch tế bào chết, bổ sung dưỡng chất và làm sáng đều màu da. Dành cho người mới bắt đầu chăm sóc da, giúp da mềm mịn, khỏe khoắn mà không gây kích ứng.",
+            "quy_trinh": [
+                "Tẩy tế bào chết toàn thân",
+                "Thoa dưỡng trắng tự nhiên",
+                "Ủ dưỡng bằng khăn ấm",
+                "Thoa kem khóa ẩm"
+            ],
+            "quy_trinh_dieu_tri": [
+                "Buổi 1: Làm sạch & tẩy tế bào chết",
+                "Buổi 2: Ủ trắng nhẹ nhàng",
+                "Buổi 3: Dưỡng sáng da"
+            ],
+            "thoi_luong": "60 phút",
+            "gia": 400000,
+            "lieu_trinh": "3 buổi (~1.200.000đ)",
+            "san_pham_di_kem": [
+                "Sữa non",
+                "Cám gạo",
+                "Vitamin C thiên nhiên"
+            ],
+            "hieu_qua": "Da sáng nhẹ, mềm và sạch tế bào chết.",
+            "uu_diem": [
+                "Chi phí thấp",
+                "An toàn với da nhạy cảm",
+                "Thích hợp dùng định kỳ"
+            ],
+            "doi_tuong": [
+                "Da thường",
+                "Da hơi xỉn màu",
+                "Khách mới sử dụng dịch vụ trắng da"
+            ],
+            "bi_quyet_cham_soc_sau": [
+                "Dưỡng thể ban đêm",
+                "Tránh nắng tối đa",
+                "Không dùng sữa tắm tẩy mạnh"
+            ],
+            "cam_ket": "Sáng nhẹ nhàng sau liệu trình đầu tiên.",
+            "id": "td001",
+            "image": [
+                "https:\/\/toplist.vn\/images\/800px\/victory-spa-bac-ninh-888451.jpg",
+                "https:\/\/cdn.bestme.vn\/images\/bestme\/bst-50-hinh-anh-spa-cham-soc-da-dep-sang-chat-luong-hd-6.jpg"
+            ],
+            "so_luong": 10
+        },
+        {
+            "ten": "Liệu trình tắm trắng phi thuyền",
+            "mo_ta": "Liệu trình sử dụng công nghệ ánh sáng sinh học hiện đại kết hợp với tinh chất dưỡng trắng chuyên sâu. Máy phi thuyền giúp mở lỗ chân lông, đẩy dưỡng chất thẩm thấu sâu vào bên trong biểu bì, làm bật tone da nhanh chóng mà không gây đau rát. Phù hợp với người có nhu cầu trắng nhanh, trắng đều toàn thân và duy trì hiệu quả lâu dài.",
+            "quy_trinh": [
+                "Tẩy tế bào chết toàn thân",
+                "Thoa serum trắng da",
+                "Ủ dưỡng dưới máy phi thuyền",
+                "Thoa kem dưỡng phục hồi"
+            ],
+            "quy_trinh_dieu_tri": [
+                "Buổi 1: Làm sạch – hấp sáng",
+                "Buổi 2: Dưỡng trắng chuyên sâu",
+                "Buổi 3: Duy trì và phục hồi"
+            ],
+            "thoi_luong": "90 phút",
+            "gia": 750000,
+            "lieu_trinh": "3 buổi (~2.250.000đ)",
+            "san_pham_di_kem": [
+                "Serum trắng da",
+                "Tinh chất vitamin B3",
+                "Kem ủ phục hồi"
+            ],
+            "hieu_qua": "Trắng rõ sau vài buổi, da đều màu và khỏe hơn.",
+            "uu_diem": [
+                "Công nghệ hiện đại",
+                "Không xâm lấn",
+                "Thích hợp mọi loại da"
+            ],
+            "doi_tuong": [
+                "Da tối màu",
+                "Da ngăm lâu năm",
+                "Người cần bật tone nhanh"
+            ],
+            "bi_quyet_cham_soc_sau": [
+                "Tránh nắng 100% trong 48h",
+                "Thoa dưỡng trắng ban đêm",
+                "Không tắm nước nóng quá lâu"
+            ],
+            "cam_ket": "Bật tone 1–2 cấp sau 3 buổi.",
+            "id": "td002",
+            "image": [
+                "https:\/\/i.pinimg.com\/736x\/cf\/d4\/0e\/cfd40e59bb92550665074e7187d10567.jpg",
+                "https:\/\/hanakbn.com\/wp-content\/uploads\/2020\/03\/tam-trang-phi-thuyen-hoang-gia.jpg",
+                "https:\/\/asclepeo.com\/wp-content\/uploads\/2022\/02\/Infrared-Lying-Down.jpg"
+            ],
+            "so_luong": 10
+        },
+        {
+            "ten": "Liệu trình tắm trắng collagen – ngọc trai – sữa non",
+            "mo_ta": "Kết hợp các thành phần cao cấp như collagen thủy phân, sữa non và bột ngọc trai, liệu trình này không chỉ làm trắng da mà còn nuôi dưỡng sâu, tái tạo làn da hư tổn, tăng độ đàn hồi và ngăn ngừa lão hóa. Da trở nên mềm mại, căng mướt và trắng hồng tự nhiên sau liệu trình.",
+            "quy_trinh": [
+                "Tẩy tế bào chết toàn thân",
+                "Thoa hỗn hợp collagen – sữa non – bột ngọc trai",
+                "Ủ bằng khăn ấm hoặc wrap chuyên dụng",
+                "Massage thư giãn nhẹ",
+                "Thoa kem dưỡng"
+            ],
+            "quy_trinh_dieu_tri": [
+                "Buổi 1: Dưỡng ẩm và sáng da",
+                "Buổi 2: Làm trắng sâu",
+                "Buổi 3: Phục hồi da mềm mượt"
+            ],
+            "thoi_luong": "75 phút",
+            "gia": 600000,
+            "lieu_trinh": "3 buổi (~1.800.000đ)",
+            "san_pham_di_kem": [
+                "Collagen thủy phân",
+                "Sữa non cô đặc",
+                "Bột ngọc trai Nhật"
+            ],
+            "hieu_qua": "Da trắng hồng, mềm mại và chống lão hóa.",
+            "uu_diem": [
+                "Phù hợp da khô, lão hóa",
+                "Thành phần thiên nhiên",
+                "Không bong tróc"
+            ],
+            "doi_tuong": [
+                "Phụ nữ trung niên",
+                "Da khô ráp, sần sùi",
+                "Da cần phục hồi sau nắng"
+            ],
+            "bi_quyet_cham_soc_sau": [
+                "Dưỡng thể mỗi tối",
+                "Không dùng sữa tắm tẩy trắng",
+                "Uống đủ nước"
+            ],
+            "cam_ket": "Da mềm, trắng khỏe chỉ sau vài buổi.",
+            "id": "td003",
+            "image": [
+                "https:\/\/i.pinimg.com\/736x\/31\/fb\/81\/31fb81b3e79c985f063381d7d3872d2f.jpg",
+                "https:\/\/i.pinimg.com\/736x\/53\/30\/b2\/5330b222e8e67e4a07317e62cc346120.jpg"
+            ],
+            "so_luong": 10
+        },
+        {
+            "ten": "Liệu trình truyền trắng nội sinh",
+            "mo_ta": "Là liệu trình trắng da toàn thân từ bên trong, truyền trực tiếp các hoạt chất như Glutathione, Vitamin C và Collagen vào cơ thể qua tĩnh mạch. Phương pháp này giúp cải thiện sắc tố da toàn diện, hỗ trợ đào thải độc tố và giảm sản xuất melanin gây sạm. Thích hợp cho người muốn trắng bền, trắng sâu và hỗ trợ da khỏe đẹp từ gốc.",
+            "quy_trinh": [
+                "Khám và tư vấn bởi nhân viên y tế",
+                "Truyền tĩnh mạch hỗn hợp Glutathione + C + Collagen",
+                "Theo dõi phản ứng 30 phút",
+                "Bôi dưỡng bảo vệ da"
+            ],
+            "quy_trinh_dieu_tri": [
+                "Buổi 1–2: Thanh lọc – đào thải",
+                "Buổi 3–5: Bật tone dần",
+                "Buổi 6–10: Duy trì và ổn định sắc tố"
+            ],
+            "thoi_luong": "60 phút",
+            "gia": 1500000,
+            "lieu_trinh": "5–10 buổi (tuỳ cơ địa) từ 7.500.000 – 15.000.000đ",
+            "san_pham_di_kem": [
+                "Glutathione tinh khiết",
+                "Vitamin C liều cao",
+                "Collagen nội sinh"
+            ],
+            "hieu_qua": "Trắng toàn thân từ bên trong, da đều màu và khỏe mạnh.",
+            "uu_diem": [
+                "Trắng rõ, hiệu quả nhanh",
+                "Cải thiện sắc tố từ gốc",
+                "Giúp da khỏe, ít mụn"
+            ],
+            "doi_tuong": [
+                "Da sạm bẩm sinh",
+                "Người từng tẩy\/nám\/mụn nặng",
+                "Khách muốn trắng bền – không cần dưỡng nhiều"
+            ],
+            "bi_quyet_cham_soc_sau": [
+                "Uống đủ nước",
+                "Không dùng rượu bia sau truyền",
+                "Dưỡng ẩm + chống nắng nghiêm ngặt"
+            ],
+            "cam_ket": "Hiệu quả bật tone rõ rệt sau 3–5 buổi đầu.",
+            "id": "td004",
+            "image": [
+                "https:\/\/edbeauty.net\/wp-content\/uploads\/2022\/11\/Truyen-trang-da-la-gi-1536x1025.jpg",
+                "https:\/\/edbeauty.net\/wp-content\/uploads\/2022\/11\/Hieu-qua-khi-thuc-hien-truyen-trang-S8-Thuy-Si-tai-ED-Beauty-Spa.jpg"
+            ],
+            "so_luong": 10
+        },
+        {
+            "ten": "Liệu trình ủ trắng sinh học Organic",
+            "mo_ta": "Liệu trình trắng da an toàn tuyệt đối, sử dụng 100% nguyên liệu thiên nhiên như cam thảo, yến mạch, trà xanh và vitamin E hữu cơ. Phù hợp với làn da nhạy cảm, mẹ bầu hoặc người không dùng được mỹ phẩm hóa học. Dưỡng chất thẩm thấu nhẹ nhàng, giúp làm sáng, đều màu và cải thiện sức khỏe làn da theo cách tự nhiên nhất.",
+            "quy_trinh": [
+                "Làm sạch da bằng gel hữu cơ",
+                "Tẩy tế bào chết yến mạch",
+                "Ủ trắng bằng thảo mộc (cam thảo, nghệ, trà xanh...)",
+                "Thoa tinh chất vitamin E – chống lão hóa"
+            ],
+            "quy_trinh_dieu_tri": [
+                "Buổi 1: Làm sạch – ủ sáng nhẹ",
+                "Buổi 2: Cân bằng da",
+                "Buổi 3: Dưỡng trắng ổn định"
+            ],
+            "thoi_luong": "60 phút",
+            "gia": 480000,
+            "lieu_trinh": "3 buổi (~1.440.000đ)",
+            "san_pham_di_kem": [
+                "Cam thảo",
+                "Yến mạch",
+                "Vitamin E hữu cơ"
+            ],
+            "hieu_qua": "Da sáng đều màu, dịu nhẹ và khỏe từ bên trong.",
+            "uu_diem": [
+                "100% thiên nhiên",
+                "Không lột tẩy",
+                "Dành cho mọi loại da, kể cả mẹ bầu"
+            ],
+            "doi_tuong": [
+                "Da nhạy cảm",
+                "Phụ nữ sau sinh",
+                "Người dị ứng mỹ phẩm hóa học"
+            ],
+            "bi_quyet_cham_soc_sau": [
+                "Không chà xát da mạnh",
+                "Dưỡng ẩm liên tục",
+                "Dùng sản phẩm dịu nhẹ, không mùi"
+            ],
+            "cam_ket": "An toàn tuyệt đối, da khỏe sáng tự nhiên từ 1–2 buổi.",
+            "id": "td005",
+            "image": [
+                "https:\/\/i.pinimg.com\/736x\/f5\/2c\/ed\/f52cedf058308121db6e5917f6ebd659.jpg",
+                "https:\/\/i.pinimg.com\/736x\/58\/a0\/d2\/58a0d2af422555da5fb5f1168cb933cf.jpg"
+            ],
+            "so_luong": 10
+        }
+    ],
+    "Trị mụn": [
+        {
+            "ten": "Trị mụn cơ bản-Làm sạch da",
+            "mo_ta": "Liệu trình chăm sóc da chuyên biệt bằng công nghệ sinh học hiện đại là giải pháp tối ưu giúp làm sạch sâu lỗ chân lông, loại bỏ mụn ẩn hiệu quả và giảm tình trạng viêm sưng trên da. Với sự kết hợp giữa các bước làm sạch chuyên sâu và công nghệ sinh học tiên tiến, liệu trình giúp thanh lọc da, kiểm soát bã nhờn, đồng thời kích thích quá trình tái tạo tế bào mới, phục hồi làn da khỏe mạnh và tươi sáng. Sau liệu trình, bạn sẽ cảm nhận rõ sự thay đổi với làn da sạch mịn, thông thoáng, căng tràn sức sống, hạn chế mụn tái phát và ngày càng khỏe đẹp tự nhiên.",
+            "quy_trinh": [
+                "Xông hơi tinh dầu mở lỗ chân lông",
+                "Lấy nhân mụn chuyên nghiệp – không đau, không để lại thâm",
+                "Điều trị sát khuẩn bằng serum BHA",
+                "Đắp mặt nạ đất sét thanh lọc và se khít lỗ chân lông"
+            ],
+            "quy_trinh_dieu_tri": [
+                "Ngày 1: Làm sạch – Lấy nhân mụn – Kháng viêm",
+                "Ngày 3: Dưỡng phục hồi, giảm đỏ và làm dịu da",
+                "Ngày 7: Tái khám và đánh giá hiệu quả"
+            ],
+            "thoi_luong": "50 phút",
+            "gia": 400000,
+            "lieu_trinh": "4 buổi (~1.600.000đ)",
+            "san_pham_di_kem": [
+                "Máy hút mụn sinh học áp lực thấp",
+                "Serum BHA\/AHA 2%",
+                "Mặt nạ đất sét Bentonite hoặc Kaolin"
+            ],
+            "hieu_qua": "Sau 1 buổi da đã sạch thoáng, sau 3 buổi mụn giảm rõ 80–90%, da mịn màng, sáng đều màu và ít tiết dầu hơn.",
+            "uu_diem": [
+                "Không gây kích ứng, phù hợp da nhạy cảm",
+                "Không đau – Không để lại sẹo hay thâm",
+                "Giúp phục hồi hàng rào bảo vệ da và giảm tái phát"
+            ],
+            "doi_tuong": [
+                "Người có da dầu, lỗ chân lông to, dễ lên mụn",
+                "Da bị mụn ẩn lâu năm, mụn đầu đen, mụn viêm nhẹ",
+                "Nam nữ từ 15 tuổi trở lên, nhất là tuổi dậy thì"
+            ],
+            "bi_quyet_cham_soc_sau": [
+                "Không trang điểm trong 48 giờ",
+                "Dưỡng ẩm nhẹ và đều đặn mỗi ngày",
+                "Không dùng tay sờ, nặn hoặc cào gãi da mụn",
+                "Luôn chống nắng kỹ khi ra ngoài"
+            ],
+            "cam_ket": "Da sạch mụn – khỏe – đều màu chỉ sau liệu trình đầu tiên. Hiệu quả lâu dài nếu duy trì đúng cách.",
+            "id": "tm001",
+            "image": [
+                "https:\/\/medlatec.vn\/media\/13130\/content\/20201106_cach-cham-soc-da-mun-5.jpg",
+                "https:\/\/shynhhouse.com\/wp-content\/uploads\/2022\/08\/spa-tri-mun-1.png"
+            ],
+            "so_luong": 16
+        },
+        {
+            "ten": "Chuyên sâu-Lấy nhân mụn chuẩn y khoa",
+            "mo_ta": "Liệu trình điều trị mụn chuyên sâu theo chuẩn y khoa là giải pháp an toàn và hiệu quả, giúp loại bỏ tận gốc nhân mụn mà không gây tổn thương da. Với quy trình khép kín, được thực hiện bài bản bởi chuyên viên giàu kinh nghiệm, liệu trình tập trung lấy sạch nhân mụn dưới da một cách nhẹ nhàng, hạn chế tối đa đau rát và sưng viêm. Đồng thời, kết hợp cùng các bước kháng viêm – phục hồi chuyên biệt, giúp làm dịu da, giảm đỏ, tái tạo tế bào mới và phục hồi hàng rào bảo vệ da. Sau liệu trình, làn da sẽ trở nên thông thoáng, sạch mịn, giảm mụn rõ rệt và ngày càng khỏe mạnh, hạn chế tối đa tình trạng mụn tái phát.",
+            "quy_trinh": [
+                "Tư vấn và soi da bằng máy phân tích",
+                "Xông hơi kết hợp tinh chất kháng khuẩn",
+                "Lấy nhân mụn bằng dụng cụ vô khuẩn chuẩn y khoa",
+                "Sát khuẩn da bằng tia lạnh công nghệ cao",
+                "Đắp mặt nạ phục hồi – làm dịu da"
+            ],
+            "quy_trinh_dieu_tri": [
+                "Buổi 1: Soi da – Lấy nhân mụn – Dưỡng dịu",
+                "Buổi 2–3: Theo dõi tiến triển – Dưỡng da phục hồi",
+                "Buổi 4: Đánh giá lại – Điều chỉnh chăm sóc phù hợp"
+            ],
+            "thoi_luong": "60 phút",
+            "gia": 550000,
+            "lieu_trinh": "4 buổi (~2.200.000đ)",
+            "san_pham_di_kem": [
+                "Máy soi da AI",
+                "Dụng cụ y khoa vô trùng",
+                "Mặt nạ HA phục hồi",
+                "Serum kháng viêm Nano BHA"
+            ],
+            "hieu_qua": "Lấy sạch nhân mụn từ gốc, da giảm viêm sưng rõ rệt sau 2 buổi, bề mặt da sáng đều và hạn chế tái phát.",
+            "uu_diem": [
+                "Thực hiện bởi kỹ thuật viên đào tạo chuẩn y khoa",
+                "Không để lại thâm sẹo – không nhiễm trùng chéo",
+                "Kết hợp liệu trình phục hồi nhanh chóng và hiệu quả"
+            ],
+            "doi_tuong": [
+                "Người bị mụn viêm sưng, mụn ẩn sâu hoặc mụn đầu đen nhiều",
+                "Người từng lấy mụn sai cách gây thâm sẹo",
+                "Khách hàng muốn điều trị đúng quy trình y khoa, hạn chế rủi ro"
+            ],
+            "bi_quyet_cham_soc_sau": [
+                "Không dùng sản phẩm đặc trị trong 48 giờ đầu",
+                "Luôn giữ da sạch và thoa serum phục hồi theo hướng dẫn",
+                "Không trang điểm và hạn chế ra nắng sau liệu trình"
+            ],
+            "cam_ket": "Loại bỏ nhân mụn tận gốc, phục hồi da an toàn – đúng chuẩn y khoa. Không để lại sẹo hay thâm.",
+            "id": "tm002",
+            "image": [
+                "https:\/\/cdn.dealtoday.vn\/img\/s630x0\/a7704ee5e0144eddad10c71f666f8f28.jpg?sign=ZTwZx9PFXkgoGdUBDTHVMQg",
+                "https:\/\/tuelambeautycarecellaspa.myspa.vn\/files\/tuelambeautycarecellaspa\/moba_gallery\/20231208114517.jpg",
+                "https:\/\/images-1.eucerin.com\/~\/media\/eucerin\/local\/vn\/co-nen-nan-mun-khong\/co-nen-nan-mun-khong-5.jpg?la=vi-vn"
+            ],
+            "so_luong": 12
+        },
+        {
+            "ten": "Trị mụn ánh sáng sinh học-Kháng viêm sâu",
+            "mo_ta": "Liệu trình sử dụng công nghệ ánh sáng sinh học (LED Blue\/Red) là giải pháp an toàn và hiệu quả trong việc điều trị các vấn đề về mụn và da tổn thương. Với cơ chế tác động chuyên sâu, ánh sáng xanh (LED Blue) giúp tiêu diệt vi khuẩn gây mụn, giảm sưng viêm, ngăn ngừa mụn phát triển, trong khi ánh sáng đỏ (LED Red) có khả năng kích thích sản sinh collagen, thúc đẩy quá trình phục hồi da, làm dịu những vùng da tổn thương từ sâu bên trong. Sự kết hợp giữa hai bước sóng này giúp làn da được thanh lọc, giảm mụn rõ rệt, đồng thời trở nên khỏe mạnh, mịn màng và đều màu hơn sau liệu trình.",
+            "quy_trinh": [
+                "Làm sạch da và tẩy tế bào chết",
+                "Xông hơi mở lỗ chân lông",
+                "Lấy nhân mụn không tổn thương da",
+                "Chiếu ánh sáng sinh học theo tình trạng da (LED xanh, đỏ hoặc tím)",
+                "Đắp mặt nạ phục hồi và se khít lỗ chân lông"
+            ],
+            "quy_trinh_dieu_tri": [
+                "Buổi 1: Làm sạch – Chiếu ánh sáng – Dưỡng phục hồi",
+                "Buổi 2–3: Kháng viêm – Điều tiết tuyến dầu",
+                "Buổi 4–5: Làm sáng – Làm dịu – Ổn định nền da",
+                "Buổi 6: Tái khám – Đánh giá cải thiện"
+            ],
+            "thoi_luong": "60 phút",
+            "gia": 650000,
+            "lieu_trinh": "6 buổi (~4.000.000đ)",
+            "san_pham_di_kem": [
+                "Máy LED ánh sáng sinh học đa bước sóng",
+                "Gel dẫn quang chuyên dụng",
+                "Mặt nạ HA hoặc Vitamin B5 phục hồi da"
+            ],
+            "hieu_qua": "Giảm viêm – mụn rõ sau 1–2 buổi, da dịu nhẹ, sáng mịn hơn, tuyến dầu ổn định và hạn chế tái phát mụn lâu dài.",
+            "uu_diem": [
+                "Không xâm lấn – không đau – không bong tróc",
+                "Phù hợp cả da nhạy cảm, da đang tổn thương sau nặn mụn",
+                "Công nghệ hiện đại – cải thiện từ sâu bên trong da"
+            ],
+            "doi_tuong": [
+                "Người bị mụn viêm, mụn mủ, mụn ẩn tái đi tái lại",
+                "Da dầu nhiều, tuyến bã nhờn hoạt động mạnh",
+                "Khách vừa lấy nhân mụn cần phục hồi nhanh và kháng viêm"
+            ],
+            "bi_quyet_cham_soc_sau": [
+                "Không rửa mặt bằng nước nóng trong 12 giờ đầu",
+                "Tránh dùng retinol\/acid mạnh trong suốt liệu trình",
+                "Dưỡng ẩm – chống nắng kỹ mỗi ngày"
+            ],
+            "cam_ket": "Hiệu quả rõ rệt từ buổi đầu tiên. Da giảm mụn – sáng khỏe – không tái viêm. Phù hợp mọi loại da.",
+            "id": "tm003",
+            "image": [
+                "https:\/\/o2skin.vn\/wp-content\/uploads\/2021\/12\/asd.jpg",
+                "https:\/\/hd1.hotdeal.vn\/images\/uploads\/2016\/Thang%203\/31\/245126\/245126-tron-goi-tri-mun-body%20%288%29.jpg",
+                "https:\/\/cdn.diemnhangroup.com\/lamdepmoingay.com.vn\/2023\/07\/spa-tri-mun-o-phan-thiet-2.jpg"
+            ],
+            "so_luong": 22
+        },
+        {
+            "ten": "Trị mụn tổng hợp-Chuyên gia theo dõi",
+            "mo_ta": "Gói trị mụn toàn diện là giải pháp chuyên sâu, được thiết kế riêng biệt nhằm mang lại hiệu quả tối ưu cho từng tình trạng da. Liệu trình kết hợp đồng thời các phương pháp tiên tiến như làm sạch sâu, lấy nhân mụn an toàn, trị liệu bằng ánh sáng sinh học (LED Blue\/Red) và phục hồi da chuyên biệt, giúp loại bỏ mụn tận gốc, giảm viêm sưng và tái tạo làn da khỏe mạnh. Đặc biệt, suốt quá trình điều trị, khách hàng sẽ được chuyên gia theo dõi sát sao, đánh giá tình trạng da định kỳ để cá nhân hóa phác đồ điều trị theo từng giai đoạn, đảm bảo hiệu quả tối ưu và hạn chế mụn tái phát lâu dài.",
+            "quy_trinh": [
+                "Soi da – Tư vấn cá nhân hóa liệu trình",
+                "Xông hơi – Tẩy tế bào chết chuyên biệt",
+                "Lấy nhân mụn chuẩn y khoa",
+                "Chiếu ánh sáng sinh học (LED xanh, đỏ, tím tùy tình trạng)",
+                "Đắp mặt nạ phục hồi cao cấp",
+                "Chuyên gia theo dõi & điều chỉnh phác đồ từng tuần"
+            ],
+            "quy_trinh_dieu_tri": [
+                "Tuần 1: Làm sạch – kháng viêm – lấy nhân",
+                "Tuần 2–3: Phục hồi – kháng khuẩn – điều tiết tuyến dầu",
+                "Tuần 4: Tổng kiểm tra – cá nhân hóa liệu trình tiếp theo",
+                "Tuần 5–6: Ổn định nền da – phục hồi sâu – làm sáng"
+            ],
+            "thoi_luong": "80 phút",
+            "gia": 850000,
+            "lieu_trinh": "6 buổi (~5.100.000đ), tặng soi da & serum phục hồi",
+            "san_pham_di_kem": [
+                "Máy soi da chuyên sâu AI",
+                "Máy hút mụn sinh học",
+                "Máy chiếu LED ánh sáng sinh học",
+                "Gel dẫn quang + serum kháng viêm",
+                "Mặt nạ phục hồi HA hoặc tế bào gốc"
+            ],
+            "hieu_qua": "Da được điều trị tận gốc – cá nhân hóa theo tiến trình. Sau 6 buổi: mụn giảm rõ >90%, da khoẻ – sáng – đều màu và hạn chế tái phát dài lâu.",
+            "uu_diem": [
+                "Cá nhân hoá 100% theo tình trạng da",
+                "Kết hợp đa công nghệ: lấy nhân – ánh sáng – phục hồi",
+                "Chuyên gia theo dõi & điều chỉnh liệu trình từng tuần"
+            ],
+            "doi_tuong": [
+                "Người bị mụn lâu năm, tái đi tái lại nhiều lần",
+                "Da từng tổn thương do lột tẩy, điều trị sai cách",
+                "Khách hàng muốn trị mụn tận gốc & lâu dài"
+            ],
+            "bi_quyet_cham_soc_sau": [
+                "Tuân thủ sản phẩm homecare được tư vấn",
+                "Không tự ý dùng mỹ phẩm có hoạt chất mạnh (AHA\/BHA\/Retinol)",
+                "Uống đủ nước, ngủ đủ giấc để hỗ trợ phục hồi từ bên trong"
+            ],
+            "cam_ket": "Cải thiện mụn rõ rệt ngay từ buổi thứ 2. Da khoẻ – sạch – sáng theo lộ trình 6 buổi, chuyên gia đồng hành 100%.",
+            "id": "tm004",
+            "image": [
+                "https:\/\/www.kiehls.com.vn\/on\/demandware.static\/-\/Sites-kiehls-vn-ng-Library\/vi_VN\/dw0fe5e3df\/images\/optimize\/Tos_Team\/mun-boc-khong-dau\/mun-boc-khong-dau-8.jpg",
+                "https:\/\/baoapbac.vn\/dataimages\/202206\/original\/images1745483_tubobai78anh1.jpg",
+                "https:\/\/sangdanang.com\/wp-content\/uploads\/2021\/04\/spa-tri-mun-01.jpg",
+                "https:\/\/blissspadanang.com\/wp-content\/uploads\/2022\/12\/spa-tri-mun-tai-da-nang.jpeg"
+            ],
+            "so_luong": 16
+        },
+        {
+            "ten": "Trị mụn cho da nhạy cảm-Phục hồi và làm dịu toàn diện",
+            "mo_ta": "Thiết kế riêng dành cho làn da yếu, nhạy cảm và dễ kích ứng, liệu trình này tập trung vào việc kháng viêm, làm dịu da và phục hồi hàng rào bảo vệ da một cách an toàn, nhẹ nhàng. Với các bước chăm sóc chuyên biệt, kết hợp sản phẩm dịu nhẹ và công nghệ hiện đại, liệu trình giúp giảm nhanh tình trạng đỏ rát, sưng viêm, đồng thời hỗ trợ điều trị mụn hiệu quả mà không gây tổn thương hay kích ứng. Sau liệu trình, làn da sẽ trở nên khỏe mạnh hơn, được củng cố lớp bảo vệ tự nhiên, mang lại vẻ ngoài mịn màng, tươi sáng và cân bằng.",
+            "quy_trinh": [
+                "Làm sạch da bằng sữa rửa mặt y khoa dịu nhẹ",
+                "Xông hơi với thảo mộc kháng khuẩn (không quá nóng)",
+                "Lấy mụn siêu nhẹ bằng tăm bông & dụng cụ mềm",
+                "Chiếu ánh sáng sinh học LED đỏ giảm viêm – phục hồi",
+                "Đắp mặt nạ cấp ẩm – làm dịu chuyên sâu"
+            ],
+            "quy_trinh_dieu_tri": [
+                "Buổi 1: Làm sạch – Lấy mụn nhẹ – Dưỡng phục hồi",
+                "Buổi 2–3: Cấp ẩm – Kháng viêm bằng LED đỏ",
+                "Buổi 4: Dưỡng hàng rào bảo vệ da – làm sáng nhẹ",
+                "Buổi 5–6: Điều chỉnh tuyến dầu – duy trì độ ổn định"
+            ],
+            "thoi_luong": "55 phút",
+            "gia": 600000,
+            "lieu_trinh": "6 buổi (~3.600.000đ)",
+            "san_pham_di_kem": [
+                "Sữa rửa mặt y khoa không bọt",
+                "Tinh chất HA + vitamin B5",
+                "LED Red Light (620–630nm)",
+                "Mặt nạ cấp ẩm peptide phục hồi"
+            ],
+            "hieu_qua": "Giảm mụn 70–90% an toàn, không gây đỏ rát. Da mềm mại, phục hồi tốt và ít kích ứng sau 6 buổi.",
+            "uu_diem": [
+                "Không gây bong tróc, đỏ da",
+                "Phù hợp cho mọi loại da yếu – nhạy cảm",
+                "Tăng sức đề kháng cho da – ngăn mụn quay trở lại"
+            ],
+            "doi_tuong": [
+                "Người từng dùng kem trộn, corticoid gây mỏng da",
+                "Da mỏng yếu do điều trị sai cách",
+                "Khách đang bị kích ứng – mụn viêm nhẹ"
+            ],
+            "bi_quyet_cham_soc_sau": [
+                "Không rửa mặt bằng nước nóng trong 24h",
+                "Sử dụng kem dưỡng phục hồi mỗi ngày",
+                "Không dùng AHA\/BHA hoặc retinol trong suốt liệu trình"
+            ],
+            "cam_ket": "Phục hồi da rõ rệt sau từng buổi, kháng viêm sâu mà không gây kích ứng. Da khoẻ – sạch – dịu nhẹ.",
+            "id": "tm005",
+            "image": [
+                "https:\/\/www.thethaodaiviet.vn\/images\/upload\/Image\/tri-mun-cho-da-nhay-cam-1578383563461.jpg",
+                "https:\/\/shynhhouse.com\/wp-content\/uploads\/2022\/08\/spa-tri-mun-4.png",
+                "https:\/\/wikithammy.com\/wp-content\/uploads\/2021\/11\/spa-tri-mun-o-ha-noi-0.jpg"
+            ],
+            "so_luong": 14
+        }
+    ],
+    "Triệt lông": [
+        {
+            "ten": "Triệt lông nách SHR – sạch sáng tự nhiên",
+            "mo_ta": "Triệt lông vùng nách bằng công nghệ SHR hiện đại là giải pháp lý tưởng giúp loại bỏ lông nhanh chóng, an toàn và hiệu quả. Công nghệ SHR (Super Hair Removal) sử dụng ánh sáng cường độ cao kết hợp sóng RF, tác động sâu vào nang lông, giúp triệt lông tận gốc mà không gây đau rát hay tổn thương da. Không chỉ giúp loại bỏ lông, phương pháp này còn hỗ trợ cải thiện sắc tố, làm sáng vùng da dưới cánh tay, se khít lỗ chân lông, mang lại làn da sạch sáng, mịn màng và đều màu. Sau liệu trình, vùng nách trở nên thông thoáng, mịn màng hơn, giúp bạn tự tin diện trang phục yêu thích mà không lo ngại.",
+            "quy_trinh": [
+                "Vệ sinh vùng nách",
+                "Tẩy tế bào chết nhẹ nhàng",
+                "Thoa gel lạnh bảo vệ",
+                "Chiếu sáng SHR",
+                "Lau sạch và dưỡng da sau triệt"
+            ],
+            "quy_trinh_dieu_tri": [
+                "Buổi 1: Làm quen, kiểm tra phản ứng da",
+                "Buổi 2–4: Triệt SHR định kỳ",
+                "Buổi 5–6: Duy trì và tối ưu hiệu quả"
+            ],
+            "thoi_luong": "30 phút",
+            "gia": 350000,
+            "lieu_trinh": "6 buổi (~2.100.000đ)",
+            "san_pham_di_kem": [
+                "Máy triệt SHR",
+                "Gel lạnh chuyên dụng",
+                "Kem dưỡng phục hồi vùng nách"
+            ],
+            "hieu_qua": "Lông giảm đến 80% sau 4 buổi, da vùng nách sáng mịn và đều màu hơn.",
+            "uu_diem": [
+                "Công nghệ SHR không đau rát",
+                "Làm sáng vùng da dưới cánh tay",
+                "Hiệu quả lâu dài, tiết kiệm thời gian"
+            ],
+            "doi_tuong": [
+                "Người có lông nách dày và rậm",
+                "Người thường bị thâm nách do cạo\/wax",
+                "Phù hợp cho cả nam và nữ mong muốn triệt lông nhẹ nhàng"
+            ],
+            "bi_quyet_cham_soc_sau": [
+                "Không dùng lăn khử mùi trong 24h",
+                "Tránh ánh nắng trực tiếp",
+                "Dưỡng ẩm và làm dịu da mỗi ngày"
+            ],
+            "cam_ket": "Giảm lông đến 90%, bảo hành hiệu quả 12 tháng, hỗ trợ tái triệt miễn phí nếu lông mọc lại sớm.",
+            "id": "tl001",
+            "image": [
+                "https:\/\/thammyvientam.com\/wp-content\/uploads\/2020\/12\/triet-long-nach.jpg",
+                "https:\/\/lian.myspa.vn\/files\/lian\/service\/20230617105041.jpg",
+                "https:\/\/cdn.prod.website-files.com\/65f284ec663f317a7b43c5dd\/670cf2110c8b4003c86f255f_triet-long-nach-co-het-tham-nach-khong-3.jpg"
+            ],
+            "so_luong": 15
+        },
+        {
+            "ten": "Triệt mép – sạch lông, sáng da mặt",
+            "mo_ta": "Dịch vụ triệt lông vùng mép bằng công nghệ hiện đại là giải pháp an toàn, nhẹ nhàng giúp loại bỏ lông hiệu quả mà không gây đau rát hay tổn thương da. Với cơ chế tác động sâu nhưng êm ái, phương pháp này giúp loại bỏ tận gốc các sợi lông vùng mép, đồng thời hỗ trợ làm sáng da, giúp bề mặt da trở nên sạch sẽ, mịn màng và đều màu hơn. Đặc biệt, sau liệu trình, lông sẽ mọc chậm và thưa hơn, hạn chế tối đa tình trạng lông mọc lại, mang đến làn da tươi sáng, mềm mại và rạng rỡ, giúp bạn tự tin hơn trong cuộc sống hằng ngày.",
+            "quy_trinh": [
+                "Làm sạch da mặt",
+                "Thoa gel lạnh vùng mép",
+                "Chiếu sáng triệt bằng công nghệ SHR",
+                "Làm dịu da và dưỡng sáng vùng da mép"
+            ],
+            "quy_trinh_dieu_tri": [
+                "Buổi 1: Làm quen và test phản ứng da",
+                "Buổi 2–3: Triệt đều định kỳ",
+                "Buổi 4–5: Duy trì kết quả",
+                "Buổi 6: Hoàn thiện và tái kiểm tra"
+            ],
+            "thoi_luong": "20 phút",
+            "gia": 200000,
+            "lieu_trinh": "6 buổi (~1.200.000đ)",
+            "san_pham_di_kem": [
+                "Máy triệt SHR mini vùng mặt",
+                "Gel lạnh chuyên biệt cho da mặt",
+                "Kem dưỡng phục hồi & sáng da"
+            ],
+            "hieu_qua": "Giảm rõ lông mép sau 2–3 buổi, da đều màu, sáng mịn hơn vùng mép.",
+            "uu_diem": [
+                "Không đau, không đỏ da",
+                "Phù hợp cho mọi loại da kể cả nhạy cảm",
+                "Mang lại thẩm mỹ cao cho gương mặt"
+            ],
+            "doi_tuong": [
+                "Người có lông mép gây tối mặt",
+                "Ngại trang điểm vì vùng mép lộ rõ",
+                "Muốn da mặt sáng đều, gọn gàng hơn"
+            ],
+            "bi_quyet_cham_soc_sau": [
+                "Không rửa mặt bằng nước nóng trong 12h đầu",
+                "Tránh dùng sữa rửa mặt có hạt",
+                "Dưỡng ẩm vùng mép mỗi ngày"
+            ],
+            "cam_ket": "Giảm lông trên 90%, duy trì da sáng đều sau 6 buổi, bảo hành 12 tháng.",
+            "id": "tl002",
+            "image": [
+                "https:\/\/hillsbeauty.vn\/wp-content\/uploads\/2020\/03\/triet-long-vinh-vien.jpg",
+                "https:\/\/cdn.tgdd.vn\/\/News\/1502426\/\/co-nen-triet-long-mat-khong-cach-triet-long-mat-11-845x475.jpg",
+                "https:\/\/hillsbeauty.vn\/wp-content\/uploads\/2020\/03\/triet-long-mat-vinh-vien-dep.jpg"
+            ],
+            "so_luong": 30
+        },
+        {
+            "ten": "Triệt lông toàn thân (Full body) – Giải pháp làm đẹp toàn diện",
+            "mo_ta": "Dịch vụ triệt lông toàn thân bằng công nghệ SHR hiện đại giúp loại bỏ lông hiệu quả trên tất cả các vùng cơ thể như mặt, tay, chân, nách, bikini, lưng và bụng. Công nghệ ánh sáng tiên tiến mang lại trải nghiệm triệt lông nhẹ nhàng, an toàn, không gây đau rát hay kích ứng. Liệu trình phù hợp với mọi loại da, giúp làn da trở nên mịn màng, sáng khỏe, mang lại sự tự tin và thoải mái tối đa cho khách hàng trong mọi hoạt động hằng ngày.",
+            "quy_trinh": [
+                "Tư vấn tổng quát và kiểm tra da toàn thân",
+                "Làm sạch và sát khuẩn các vùng da triệt",
+                "Thoa gel lạnh bảo vệ và làm dịu da",
+                "Chiếu ánh sáng SHR lần lượt trên toàn thân",
+                "Làm dịu, thoa kem dưỡng phục hồi và hướng dẫn chăm sóc tại nhà"
+            ],
+            "quy_trinh_dieu_tri": [
+                "Buổi 1: Thăm khám da và triệt thử một số vùng",
+                "Buổi 2–4: Triệt đều đặn các vùng trên cơ thể, cách nhau 10 ngày",
+                "Buổi 5–6: Duy trì kết quả, tập trung các vùng có lông cứng hơn"
+            ],
+            "thoi_luong": "150 phút",
+            "gia": 3500000,
+            "lieu_trinh": "6 buổi (~21.000.000đ)",
+            "san_pham_di_kem": [
+                "Máy SHR đa vùng hiện đại",
+                "Gel triệt lạnh chuyên dụng",
+                "Kem dưỡng phục hồi toàn thân"
+            ],
+            "hieu_qua": "Sau 2–3 buổi, lông giảm rõ rệt trên toàn thân, da mịn màng, đều màu hơn, hạn chế mọc lại.",
+            "uu_diem": [
+                "Hiệu quả toàn diện chỉ trong vài buổi",
+                "Không đau, không xâm lấn, an toàn cho mọi vùng da",
+                "Tiết kiệm thời gian và chi phí so với triệt lẻ từng vùng"
+            ],
+            "doi_tuong": [
+                "Khách hàng muốn triệt lông toàn diện",
+                "Người bận rộn muốn tiết kiệm thời gian",
+                "Khách có làn da nhạy cảm, ngại waxing hoặc cạo lông truyền thống"
+            ],
+            "bi_quyet_cham_soc_sau": [
+                "Uống đủ nước, hạn chế hoạt động ngoài nắng trong 48h",
+                "Không tắm nước nóng hoặc đi xông hơi ngay sau triệt",
+                "Dưỡng ẩm và chống nắng đầy đủ theo hướng dẫn"
+            ],
+            "cam_ket": "Hiệu quả từ 90% sau liệu trình, bảo hành kết quả 12 tháng, 100% sử dụng công nghệ chuẩn y khoa.",
+            "id": "tl003",
+            "image": [
+                "https:\/\/sumibeautycenter.com\/wp-content\/uploads\/2024\/09\/triet-long-toan-than.jpg",
+                "https:\/\/alltop.vn\/backend\/media\/images\/posts\/2946\/Lan_Hong_Kong_-_Tham_my_hang_dau_Bac_Giang-185228.jpg"
+            ],
+            "so_luong": 15
+        },
+        {
+            "ten": "Triệt tay – sáng mịn cả cánh tay",
+            "mo_ta": "Dịch vụ triệt lông vùng cánh tay bằng công nghệ SHR hiện đại giúp loại bỏ lông nhanh chóng, mang lại hiệu quả vượt trội mà vẫn đảm bảo an toàn cho da. Với cơ chế tác động sâu nhưng nhẹ nhàng, công nghệ SHR không chỉ giúp triệt lông tận gốc mà còn hỗ trợ làm sáng da, cải thiện tình trạng da sần sùi, giúp vùng da cánh tay trở nên mịn màng và đều màu hơn. Sau liệu trình, bạn sẽ cảm nhận rõ sự khác biệt với làn da sạch thoáng, mềm mại, tự tin khoe vẻ đẹp rạng rỡ khi diện trang phục ngắn tay hay sát nách.",
+            "quy_trinh": [
+                "Vệ sinh và làm sạch vùng tay",
+                "Tẩy tế bào chết nhẹ nhàng",
+                "Thoa gel lạnh chuyên dụng",
+                "Chiếu sáng SHR toàn bộ cánh tay",
+                "Dưỡng da sau triệt để phục hồi và làm sáng"
+            ],
+            "quy_trinh_dieu_tri": [
+                "Buổi 1: Làm quen và kiểm tra da",
+                "Buổi 2–4: Triệt đều định kỳ",
+                "Buổi 5–6: Tăng cường hiệu quả và duy trì"
+            ],
+            "thoi_luong": "35 phút",
+            "gia": 500000,
+            "lieu_trinh": "6 buổi (~3.000.000đ)",
+            "san_pham_di_kem": [
+                "Máy SHR công suất cao vùng lớn",
+                "Gel lạnh toàn tay",
+                "Kem dưỡng sáng và phục hồi da tay"
+            ],
+            "hieu_qua": "Giảm lông rõ rệt sau 2–3 buổi, da tay mịn và sáng đều hơn, không còn cảm giác sần sùi.",
+            "uu_diem": [
+                "Không đau, không rát",
+                "Làm sáng đều da toàn bộ cánh tay",
+                "Giữ hiệu quả lâu dài và thẩm mỹ cao"
+            ],
+            "doi_tuong": [
+                "Người có lông tay rậm, đen hoặc dày",
+                "Ngại cạo\/wax vì da kích ứng",
+                "Người muốn tự tin diện váy áo ngắn tay"
+            ],
+            "bi_quyet_cham_soc_sau": [
+                "Tránh nắng trực tiếp 24h đầu",
+                "Không dùng sữa tắm tẩy mạnh",
+                "Thoa kem dưỡng làm dịu 2 lần\/ngày"
+            ],
+            "cam_ket": "Giảm lông đến 90%, da sáng đều và mịn màng sau liệu trình, bảo hành hiệu quả 12 tháng.",
+            "id": "tl004",
+            "image": [
+                "https:\/\/cdn.nhathuoclongchau.com.vn\/unsafe\/800x0\/https:\/\/cms-prod.s3-sgn09.fptcloud.com\/triet_long_tay_vinh_vien_va_nhung_dieu_can_biet_1_950e929b51.jpg",
+                "https:\/\/lgclinic.vn\/wp-content\/uploads\/2024\/11\/triet-long-tay-bang-cong-nghe-IPL.jpg",
+                "https:\/\/aquaclinic.com.vn\/wp-content\/uploads\/2020\/11\/triet-long-tay-la-gi.jpg"
+            ],
+            "so_luong": 18
+        },
+        {
+            "ten": "Triệt chân – mượt mà từng bước đi",
+            "mo_ta": "Dịch vụ triệt lông chân toàn phần bằng công nghệ SHR hiện đại là giải pháp hoàn hảo giúp loại bỏ lông hiệu quả, an toàn và nhanh chóng. Với cơ chế tác động sâu nhưng êm ái, công nghệ SHR không chỉ triệt lông tận gốc mà còn hỗ trợ cải thiện sắc tố da, giúp làn da chân trở nên láng mịn, mềm mại và đều màu hơn. Đặc biệt, phương pháp này hoàn toàn không gây đau rát, không tổn thương da, giúp bạn thoải mái và an tâm trong suốt quá trình thực hiện. Sau liệu trình, bạn sẽ tự tin khoe đôi chân thon gọn, mịn màng khi diện váy ngắn, quần short hay các trang phục yêu thích.",
+            "quy_trinh": [
+                "Vệ sinh và làm sạch vùng chân",
+                "Tẩy tế bào chết làm mềm nang lông",
+                "Thoa gel lạnh bảo vệ da",
+                "Chiếu SHR đều khắp đùi và bắp chân",
+                "Làm dịu và dưỡng sáng sau triệt"
+            ],
+            "quy_trinh_dieu_tri": [
+                "Buổi 1: Kiểm tra da và triệt thử",
+                "Buổi 2–4: Triệt SHR định kỳ toàn bộ chân",
+                "Buổi 5–6: Củng cố kết quả và làm sáng da"
+            ],
+            "thoi_luong": "50 phút",
+            "gia": 850000,
+            "lieu_trinh": "6 buổi (~5.000.000đ)",
+            "san_pham_di_kem": [
+                "Máy SHR toàn thân",
+                "Gel lạnh vùng chân",
+                "Kem dưỡng phục hồi & làm sáng"
+            ],
+            "hieu_qua": "Sau 2–3 buổi, lông giảm 80%, da chân mịn và trắng hơn, không còn sần sùi hay lỗ chân lông to.",
+            "uu_diem": [
+                "Không đau, không kích ứng",
+                "Hiệu quả lâu dài, tiết kiệm thời gian chăm sóc",
+                "Tự tin diện váy ngắn quanh năm"
+            ],
+            "doi_tuong": [
+                "Người có lông chân rậm, đen hoặc thô cứng",
+                "Ngại cạo vì lông mọc nhanh, da thâm",
+                "Thường xuyên diện váy\/short cần thẩm mỹ vùng chân"
+            ],
+            "bi_quyet_cham_soc_sau": [
+                "Không đi bơi, tắm nước nóng sau triệt",
+                "Thoa dưỡng ẩm hàng ngày cho vùng chân",
+                "Tránh cạo\/wax lại trong suốt liệu trình"
+            ],
+            "cam_ket": "Hiệu quả lên đến 95%, da sáng rõ rệt, cam kết bảo hành 12 tháng.",
+            "id": "tl005",
+            "image": [
+                "https:\/\/cdn.dangcapphaidep.vn\/wp-content\/uploads\/2021\/03\/co-nen-triet-long-chan-vinh-vien-khong-1.jpg",
+                "https:\/\/thammysen.vn\/wp-content\/uploads\/2017\/03\/triet-long-chan-vinh-vien-co-tac-hai-khong.jpg.webp",
+                "https:\/\/myanhbeauty.vn\/upload\/images\/triet-long-chan-bao-lau-moc-lai.jpg"
+            ],
+            "so_luong": 20
+        }
+    ]
+}

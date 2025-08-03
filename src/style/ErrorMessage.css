@@ -1,0 +1,328 @@
+/* ErrorMessage.css */
+
+:root {
+  --primary-brown: #7f5539;
+  --light-brown: #a68a64;
+  --light-bg: #ede0d4;
+  --dark-green: #656d4a;
+  --darker-green: #414833;
+  --white: #ffffff;
+  --text-dark: #2c2c2c;
+  --text-light: #666666;
+  --error-red: #dc3545;
+  --warning-yellow: #ffc107;
+  --info-blue: #17a2b8;
+}
+
+.error-message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  padding: 3rem 2rem;
+  background: var(--white);
+  border-radius: 20px;
+  margin: 2rem auto;
+  max-width: 600px;
+  box-shadow: 0 10px 30px rgba(127, 85, 57, 0.1);
+  border: 1px solid var(--light-brown);
+  text-align: center;
+}
+
+.error-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.error-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.error-text {
+  max-width: 500px;
+}
+
+.error-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.error-description {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.error-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.retry-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: var(--primary-brown);
+  color: var(--white);
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.retry-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.retry-button:hover::before {
+  left: 100%;
+}
+
+.retry-button:hover {
+  background: var(--dark-green);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(127, 85, 57, 0.3);
+}
+
+.retry-button:active {
+  transform: translateY(0);
+}
+
+.retry-icon {
+  font-size: 1.2rem;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.retry-button:hover .retry-icon {
+  animation-duration: 0.3s;
+}
+
+/* Error Types */
+.error-message-container.error {
+  border-left: 5px solid var(--error-red);
+}
+
+.error-message-container.error .error-title {
+  color: var(--error-red);
+}
+
+.error-message-container.warning {
+  border-left: 5px solid var(--warning-yellow);
+  background: linear-gradient(135deg, #fff8e1 0%, var(--white) 100%);
+}
+
+.error-message-container.warning .error-title {
+  color: #f57c00;
+}
+
+.error-message-container.info {
+  border-left: 5px solid var(--info-blue);
+  background: linear-gradient(135deg, #e3f2fd 0%, var(--white) 100%);
+}
+
+.error-message-container.info .error-title {
+  color: var(--info-blue);
+}
+
+/* Compact version */
+.error-message-container.compact {
+  min-height: auto;
+  padding: 2rem;
+  flex-direction: row;
+  text-align: left;
+}
+
+.error-message-container.compact .error-content {
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 0;
+  margin-right: 1rem;
+}
+
+.error-message-container.compact .error-icon {
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+
+.error-message-container.compact .error-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.error-message-container.compact .error-description {
+  font-size: 1rem;
+}
+
+/* Inline version */
+.error-message-container.inline {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  border-left: 4px solid var(--error-red);
+  border-radius: 0;
+  padding: 1rem;
+  margin: 1rem 0;
+  min-height: auto;
+}
+
+.error-message-container.inline .error-content {
+  flex-direction: row;
+  margin-bottom: 0;
+}
+
+.error-message-container.inline .error-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+.error-message-container.inline .error-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.error-message-container.inline .error-description {
+  font-size: 0.9rem;
+}
+
+/* Full page error */
+.error-message-container.full-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--light-bg);
+  border-radius: 0;
+  margin: 0;
+  max-width: none;
+  z-index: 9999;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .error-message-container {
+    padding: 2rem 1.5rem;
+    margin: 1rem;
+  }
+  
+  .error-title {
+    font-size: 1.5rem;
+  }
+  
+  .error-description {
+    font-size: 1rem;
+  }
+  
+  .error-icon {
+    font-size: 3rem;
+  }
+  
+  .retry-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .error-message-container {
+    padding: 1.5rem 1rem;
+    min-height: 250px;
+  }
+  
+  .error-title {
+    font-size: 1.25rem;
+  }
+  
+  .error-description {
+    font-size: 0.95rem;
+  }
+  
+  .error-icon {
+    font-size: 2.5rem;
+  }
+  
+  .error-message-container.compact {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .error-message-container.compact .error-content {
+    flex-direction: column;
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Animation for container */
+.error-message-container {
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Shake animation for retry button */
+.retry-button.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}

@@ -11,13 +11,6 @@ const developers = [
     borderColor: "black"
   },
   {
-    name: "Nguyễn Trường Sinh",
-    role: "Project Manager",
-    description: "There are many variations of passages but the majority have suffered alteration in some form by injected.",
-    image: "https://i.pinimg.com/736x/aa/0b/29/aa0b29596cdf5f154d416156a615036a.jpg",
-    borderColor: "black"
-  },
-  {
     name: "Nguyễn Thị Ngát",
     role: "Data Analyst",
     description: "There are many variations of passages but the majority have suffered alteration in some form by injected.",
@@ -36,7 +29,7 @@ const developers = [
 const Developer = () => {
   return (
     <div className="developer-page">
-      <h2 className="developer-title">Thành viên nhóm 12</h2>
+      <h2 className="developer-title">Thành viên nhóm 8</h2>
       <p className="developer-subtitle">
         <FaUsers className="subtitle-icon" />
         Our Great Team</p>

@@ -10,7 +10,7 @@ const OrderHistory = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [expandedOrder, setExpandedOrder] = useState(null);
-  const { user } = useContext(AuthContext); // Fixed: Use useContext instead of useState
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -31,9 +31,7 @@ const OrderHistory = () => {
         setOrders(response.data.data);
         setLoading(false);
       } catch (err) {
-        setError(
-          err.response?.data?.message || "Đã xảy ra lỗi khi tải đơn hàng"
-        );
+        setError("Lỗi khi tải lịch sử đặt dịch vụ.");
         setLoading(false);
       }
     };
@@ -42,14 +40,9 @@ const OrderHistory = () => {
   }, [user]);
 
   const toggleOrderDetails = (orderId) => {
-    if (expandedOrder === orderId) {
-      setExpandedOrder(null);
-    } else {
-      setExpandedOrder(orderId);
-    }
+    setExpandedOrder(expandedOrder === orderId ? null : orderId);
   };
 
-  // Format giá tiền VND
   const formatPrice = (price) => {
     return new Intl.NumberFormat("vi-VN", {
       style: "currency",
@@ -57,7 +50,6 @@ const OrderHistory = () => {
     }).format(price);
   };
 
-  // Format ngày giờ
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("vi-VN", {
@@ -69,12 +61,11 @@ const OrderHistory = () => {
     });
   };
 
-  // Lấy màu dựa trên trạng thái đơn hàng
   const getStatusColor = (status) => {
     switch (status) {
-      case "Đã giao hàng":
+      case "Hoàn thành":
         return "green";
-      case "Đang giao hàng":
+      case "Đang thực hiện":
         return "blue";
       case "Đã hủy":
         return "red";
@@ -85,9 +76,39 @@ const OrderHistory = () => {
     }
   };
 
+  const handleCancelOrder = async (orderId) => {
+    if (!window.confirm("Bạn có chắc muốn hủy đơn này không?")) return;
+
+    try {
+      const response = await axios.post(
+        `http://localhost/BaiTapNhom/backend/huy_don.php?order_id=${orderId}`
+      );
+
+      if (response.data.success) {
+        toast.success("Đã hủy đơn thành công");
+        setOrders(orders.map(order =>
+          order.ma_don_hang === orderId
+            ? { ...order, trang_thai: "Đã hủy" }
+            : order
+        ));
+      } else {
+        toast.error(response.data.message || "Hủy đơn thất bại.");
+      }
+    } catch (error) {
+      toast.error("Lỗi khi hủy đơn.");
+    }
+  };
+
+  const shouldShowCancelButton = (order) => {
+    const status = (order.trang_thai || "").toLowerCase().trim();
+    return status === "chờ xử lý" || status === "chưa thanh toán";
+  };
+
+
+
   return (
     <div className="order-history-container">
-      <h1>Lịch sử đơn hàng</h1>
+      <h1>Lịch sử đặt dịch vụ</h1>
 
       {loading ? (
         <div className="loading">Đang tải...</div>
@@ -95,9 +116,9 @@ const OrderHistory = () => {
         <div className="error">{error}</div>
       ) : orders.length === 0 ? (
         <div className="no-orders">
-          <p>Bạn chưa có đơn hàng nào.</p>
-          <Link to="/AllLinhKien" className="shop-now-btn">
-            Mua sắm ngay
+          <p>Bạn chưa đặt dịch vụ nào.</p>
+          <Link to="/AllDichvu" className="shop-now-btn">
+            Đặt lịch ngay
           </Link>
         </div>
       ) : (
@@ -109,8 +130,12 @@ const OrderHistory = () => {
                 onClick={() => toggleOrderDetails(order.ma_don_hang)}
               >
                 <div className="order-basic-info">
-                  <div className="order-id">Đơn hàng #{order.ma_don_hang}</div>
-                  <div className="order-date">{formatDate(order.ngay_dat)}</div>
+                  <div className="order-id">
+                    Mã đơn #{order.ma_don_hang}
+                  </div>
+                  <div className="order-date">
+                    {formatDate(order.ngay_dat)}
+                  </div>
                 </div>
 
                 <div className="order-summary">
@@ -133,100 +158,65 @@ const OrderHistory = () => {
                 <div className="order-details">
                   <div className="order-sections">
                     <div className="order-section">
-                      <h3>Thông tin giao hàng</h3>
-                      <p>
-                        <strong>Người nhận:</strong> {order.nguoi_nhan}
-                      </p>
-                      <p>
-                        <strong>Số điện thoại:</strong> {order.sdt_nhan}
-                      </p>
-                      {order.dia_chi !== "Lấy tại cửa hàng" && (
-                        <p>
-                          <strong>Địa chỉ:</strong> {order.dia_chi},{" "}
-                          {order.phuong_xa}, {order.quan_huyen},{" "}
-                          {order.tinh_thanh}
-                        </p>
-                      )}
+                      <h3>Thông tin khách hàng</h3>
+                      <p><strong>Họ tên:</strong> {order.ten_khach_hang}</p>
+                      <p><strong>SĐT:</strong> {order.so_dien_thoai}</p>
+                      <p><strong>Email:</strong> {order.email}</p>
+                      <p><strong>Thời gian đặt:</strong> {order.gio_dat}</p>
                     </div>
 
-                    <div className="order-section">
-                      <h3>Thông tin thanh toán</h3>
+                    {order.ghi_chu && (
+                      <div className="order-note">
+                        <h3>Ghi chú</h3>
+                        <p>{order.ghi_chu}</p>
+                      </div>
+                    )}
+
+                    <div className="product-list">
+                      <h3>Dịch vụ đã đặt</h3>
+                      <table className="product-table">
+                        <thead>
+                          <tr>
+                            <th>Tên dịch vụ</th>
+                            <th>Số lượng</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {Array.isArray(order.san_pham) &&
+                            order.san_pham.length > 0 ? (
+                            order.san_pham.map((service, index) => (
+                              <tr key={index}>
+                                <td>{service.ten_san_pham}</td>
+                                <td>{service.so_luong}</td>
+                              </tr>
+                            ))
+                          ) : (
+                            <tr>
+                              <td colSpan="2">
+                                Không có dịch vụ trong đơn này.
+                              </td>
+                            </tr>
+                          )}
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div className="order-total">
                       <p>
-                        <strong>Phương thức:</strong>{" "}
-                        {order.phuong_thuc_thanh_toan === "cod"
-                          ? "Thanh toán khi nhận hàng"
-                          : order.phuong_thuc_thanh_toan}
-                      </p>
-                      <p>
-                        <strong>Phương thức vận chuyển:</strong>{" "}
-                        {order.dia_chi === "Lấy tại cửa hàng"
-                          ? "Lấy tại cửa hàng"
-                          : "Giao hàng tận tay"}
-                      </p>
-                      <p>
-                        <strong>Trạng thái:</strong>{" "}
-                        {order.trang_thai_thanh_toan}
-                      </p>
-                      <p>
-                        <strong>Tổng tiền:</strong>{" "}
+                        <strong>Tổng thanh toán:</strong>{" "}
                         {formatPrice(order.tong_tien)}
                       </p>
                     </div>
                   </div>
 
-                  {order.ghi_chu && (
-                    <div className="order-note">
-                      <h3>Ghi chú</h3>
-                      <p>{order.ghi_chu}</p>
-                    </div>
-                  )}
-
-                  <div className="product-list">
-                    <h3>Sản phẩm</h3>
-                    <table className="product-table">
-                      <thead>
-                        <tr>
-                          <th>Sản phẩm</th>
-                          <th>Số lượng</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {Array.isArray(order.san_pham) &&
-                        order.san_pham.length > 0 ? (
-                          order.san_pham.map((product, index) => (
-                            <tr key={index}>
-                              <td>{product.ten_san_pham}</td>
-                              <td>{product.so_luong}</td>
-                            </tr>
-                          ))
-                        ) : (
-                          <tr>
-                            <td colSpan="2">
-                              Không có sản phẩm nào trong đơn hàng này.
-                            </td>
-                          </tr>
-                        )}
-                      </tbody>
-                    </table>
-                  </div>
-
                   <div className="order-actions">
-                    <Link
-                      to={`/order-detail/${order.ma_don_hang}`}
-                      className="view-detail-btn"
-                    >
-                      Xem chi tiết
-                    </Link>
-                    {order.trang_thai === "Chờ xử lý" && (
-                      <button className="cancel-order-btn">Hủy đơn hàng</button>
-                    )}
-                    {order.trang_thai === "Đã giao hàng" && (
-                      <Link
-                        to={`/review-products/${order.ma_don_hang}`}
-                        className="review-btn"
+                    {shouldShowCancelButton(order) && (
+                      <button
+                        className="cancel-order-btn"
+                        onClick={() => handleCancelOrder(order.ma_don_hang)}
                       >
-                        Đánh giá sản phẩm
-                      </Link>
+                        Hủy đặt lịch
+                      </button>
                     )}
                   </div>
                 </div>

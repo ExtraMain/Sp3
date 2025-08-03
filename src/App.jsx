@@ -40,8 +40,8 @@ const GlobalStyle = createGlobalStyle`
 const Contact = lazy(() => import("./page/Contact"));
 const Home = lazy(() => import("./page/Home"));
 const Register = lazy(() => import("./page/Register"));
-const AllLinhKien = lazy(() => import("./page/funtion/AllLinhKien"));
-const ChiTietLinhKien = lazy(() => import("./page/funtion/ChiTietLinhKien"));
+const AllDichvu = lazy(() => import("./page/funtion/AllDichvu"));
+const ChiTietDichvu = lazy(() => import("./page/funtion/ChiTietDichvu"));
 const Profile = lazy(() => import("./page/funtion/Profile"));
 const Checkout = lazy(() => import("./page/funtion/Checkout"));
 const Cart = lazy(() => import("./page/funtion/Cart"));
@@ -53,6 +53,10 @@ const Developer = lazy(() => import("./page/funtion/Developer"));
 const Blog = lazy(() => import("./page/funtion/Blog"));
 const Invoice = lazy(() => import("./page/funtion/Invoice"));
 const Wishlist = lazy(() => import("./page/funtion/Wishlist"));
+const SpaScene = lazy(() => import("./page/funtion/SpaScene"));
+const Administrator = lazy(() => import(".././backend/front/jsx/Administrator"));
+
+
 
 // NotFound component
 const NotFound = () => (
@@ -89,7 +93,7 @@ const App = () => {
             <ScrollToTop />
             <div className="page-container">
               <Header />
-              <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+              {/* <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} /> */}
               <Suspense fallback={<div className="loading">Đang tải...</div>}>
                 <AnimatePresence mode="wait">
                   <Routes>
@@ -122,16 +126,16 @@ const App = () => {
                       }
                     />
                     <Route
-                      path="/AllLinhKien"
+                      path="/AllDichvu"
                       element={
                         <motion.div
-                          key="all-linh-kien"
+                          key="all-dich-vu"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -20 }}
                           transition={{ duration: 0.5, ease: "easeInOut" }}
                         >
-                          <AllLinhKien />
+                          <AllDichvu />
                         </motion.div>
                       }
                     />
@@ -220,16 +224,16 @@ const App = () => {
                       }
                     />
                     <Route
-                      path="/linh-kien/:id"
+                      path="/dich-vu/:id"
                       element={
                         <motion.div
-                          key="chi-tiet-linh-kien"
+                          key="chi-tiet-dich-vu"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -20 }}
                           transition={{ duration: 0.5, ease: "easeInOut" }}
                         >
-                          <ChiTietLinhKien />
+                          <ChiTietDichvu />
                         </motion.div>
                       }
                     />
@@ -314,6 +318,34 @@ const App = () => {
                           transition={{ duration: 0.5, ease: "easeInOut" }}
                         >
                           <Wishlist />
+                        </motion.div>
+                      }
+                    />
+                    <Route
+                      path="/SpaScene"
+                      element={
+                        <motion.div
+                          key="spascene"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -20 }}
+                          transition={{ duration: 0.5, ease: "easeInOut" }}
+                        >
+                          <SpaScene />
+                        </motion.div>
+                      }
+                    />
+                    <Route
+                      path="/Administrator"
+                      element={
+                        <motion.div
+                          key="administrator"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -20 }}
+                          transition={{ duration: 0.5, ease: "easeInOut" }}
+                        >
+                          <Administrator />
                         </motion.div>
                       }
                     />

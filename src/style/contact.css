@@ -6,10 +6,10 @@
   max-width: 1100px;
   margin: 3rem auto;
   padding: 2rem;
-  background-color: #FFFFFF; /* White */
+  background-color: #ede0d4; /* Soft beige */
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adjusted shadow opacity */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Aligned with product page */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .form-section {
@@ -19,7 +19,7 @@
 }
 
 .contact-subtitle {
-  color: #8000FF; /* Neon Purple */
+  color: #7f5539; /* Rich brown */
   font-weight: bold;
   margin-bottom: 0.3rem;
 }
@@ -27,18 +27,18 @@
 .contact-title {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #000000; /* Black */
+  color: #7f5539; /* Rich brown */
   margin-bottom: 0.5rem;
 }
 
 .contact-description {
   font-size: 0.9rem;
-  color: #666; /* Darker gray for contrast */
+  color: #656d4a; /* Olive green */
   margin-bottom: 1rem;
 }
 
 .required {
-  color: #FF0000; /* Red */
+  color: #7f5539; /* Rich brown */
 }
 
 .contact-form {
@@ -63,7 +63,7 @@
 input,
 textarea {
   padding: 0.75rem;
-  border: 1px solid #CCCCCC; /* Light Gray */
+  border: 1px solid #414833; /* Dark green */
   border-radius: 8px;
   font-size: 1rem;
   width: 100%;
@@ -72,8 +72,8 @@ textarea {
 
 input:focus,
 textarea:focus {
-  border-color: #FF0000; /* Red */
-  outline: 2px solid #FF0000; /* Red for accessibility */
+  border-color: #7f5539; /* Rich brown */
+  outline: 2px solid #7f5539; /* Rich brown */
 }
 
 textarea {
@@ -81,8 +81,8 @@ textarea {
 }
 
 .contact-wrapper-button {
-  background-color: #FF0000; /* Red */
-  color: #FFFFFF; /* White */
+  background-color: #7f5539; /* Rich brown */
+  color: #ede0d4; /* Soft beige */
   padding: 0.9rem;
   border: none;
   border-radius: 8px;
@@ -92,11 +92,11 @@ textarea {
 }
 
 .contact-wrapper-button:hover {
-  background-color: #CC0000; /* Darker Red */
+  background-color: #a68a64; /* Muted gold */
 }
 
 .contact-wrapper-button:disabled {
-  background-color: #CCCCCC; /* Light Gray */
+  background-color: #414833; /* Dark green */
   cursor: not-allowed;
 }
 
@@ -117,10 +117,10 @@ textarea {
 
 .success-message {
   padding: 1rem;
-  background-color: #E6E6E6; /* Light grayish for contrast */
-  border: 1px solid #8000FF; /* Neon Purple */
+  background-color: #ede0d4; /* Soft beige */
+  border: 1px solid #7f5539; /* Rich brown */
   border-radius: 10px;
-  color: #000000; /* Black */
+  color: #7f5539; /* Rich brown */
   font-size: 1.1rem;
 }
 
@@ -253,56 +253,57 @@ textarea {
   }
 }
 
+/* Small Mobile (max-width: 320px) */
 @media (max-width: 320px) {
   .contact-wrapper {
-    margin: 1rem auto; /* Giảm margin để tiết kiệm không gian */
-    padding: 1rem; /* Giảm padding cho gọn */
-    border-radius: 6px; /* Bo góc nhỏ hơn */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Giảm độ đậm shadow */
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
   }
 
   .contact-subtitle {
-    font-size: 0.8rem; /* Giảm kích thước chữ */
+    font-size: 0.8rem;
   }
 
   .contact-title {
-    font-size: 1.2rem; /* Giảm kích thước tiêu đề */
-    margin-bottom: 0.3rem; /* Giảm khoảng cách dưới */
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
   }
 
   .contact-description {
-    font-size: 0.8rem; /* Giảm kích thước mô tả */
-    margin-bottom: 0.6rem; /* Giảm khoảng cách */
+    font-size: 0.8rem;
+    margin-bottom: 0.6rem;
   }
 
   .contact-form {
-    gap: 0.8rem; /* Giảm khoảng cách giữa các trường */
+    gap: 0.8rem;
   }
 
   .form-row {
-    gap: 0.6rem; /* Giảm khoảng cách trong form-row */
+    gap: 0.6rem;
   }
 
   input,
   textarea {
-    padding: 0.5rem; /* Giảm padding cho input và textarea */
-    font-size: 0.85rem; /* Giảm kích thước chữ */
-    border-radius: 5px; /* Bo góc nhỏ hơn */
+    padding: 0.5rem;
+    font-size: 0.85rem;
+    border-radius: 5px;
   }
 
   .contact-wrapper-button {
-    padding: 0.6rem; /* Giảm padding cho nút */
-    font-size: 0.85rem; /* Giảm kích thước chữ */
-    border-radius: 5px; /* Bo góc nhỏ hơn */
+    padding: 0.6rem;
+    font-size: 0.85rem;
+    border-radius: 5px;
   }
 
   .image-section img {
-    border-radius: 6px; /* Bo góc nhỏ hơn cho hình ảnh */
+    border-radius: 6px;
   }
 
   .success-message {
-    padding: 0.6rem; /* Giảm padding */
-    font-size: 0.9rem; /* Giảm kích thước chữ */
-    border-radius: 6px; /* Bo góc nhỏ hơn */
+    padding: 0.6rem;
+    font-size: 0.9rem;
+    border-radius: 6px;
   }
 }

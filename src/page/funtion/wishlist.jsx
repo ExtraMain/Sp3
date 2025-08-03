@@ -4,7 +4,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { motion } from "framer-motion";
 import { Trash2, Heart } from "lucide-react";
-import products from "./Linh_kien.json";
+import products from "../../page/funtion/Dich_vu_spa.json";
 import "../../style/wishlist.css";
 
 const allProducts = Object.values(products).flat();
@@ -185,7 +185,7 @@ const Wishlist = () => {
               >
                 <Link to={`/linh-kien/${item.id}`} className="wishlist-link">
                   <img
-                    src={item.images?.[0] || "/placeholder.jpg"}
+                    src={item.image?.[0] || "/placeholder.jpg"}
                     alt={item.ten}
                     className="wishlist-item-image"
                     onError={(e) => {

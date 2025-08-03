@@ -1,6 +1,8 @@
 
 # BaiTapNhom
 
+##### *Sửa tên folder thành BaiTapNhom
+
 # Hướng Dẫn Chạy Dự Án ReactJS Trên Windows và XAMPP
 
 ## Bước 1: Cài đặt Node.js
